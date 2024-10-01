@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded YouTube Videos from Various URLs</title>
+</head>
+<body>
+    <h1>Embedded YouTube Videos</h1>
+
+    <div id="video-container"></div>
+
+    <script>
+        // Array of YouTube video URLs from different formats
+        const videoUrls = [
+            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "https://youtu.be/3JZ_D3ELwOQ",
+            "https://m.youtube.com/watch?v=tgbNymZ7vqY",
+            "https://www.youtube.com/embed/abc123"
+        ];
+
+        // Get the video container element
+        const videoContainer = document.getElementById("video-container");
+
+        // Function to extract the video ID using regular expressions
+        function extractVideoId(url) {
+            const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\/)|youtu\.be\/)([^&?/]{11})/;
+            const match = url.match(regex);
+            return match ? match[1] : null;
+        }
+
+        // Function to convert the extracted video ID into an embed URL
+        function convertToEmbedUrl(url) {
+            const videoId = extractVideoId(url);
+            if (videoId) {
+                return `https://www.youtube.com/embed/${videoId}`;
+            }
+            return null;
+        }
+
+        // Loop through each URL, convert it to an embed URL if valid, and create an iframe element
+        videoUrls.forEach(url => {
+            const embedUrl = convertToEmbedUrl(url);
+            if (embedUrl) {
+                const iframe = document.createElement("iframe");
+                iframe.width = "560";
+                iframe.height = "315";
+                iframe.src = embedUrl;
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+
+                // Append the iframe to the video container
+                videoContainer.appendChild(iframe);
+            } else {
+                console.log(`Invalid YouTube URL: ${url}`);
+            }
+        });
+    </script>
+</body>
+</html>
