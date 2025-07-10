@@ -25,11 +25,7 @@
 
     #editor {
       flex: 1;
-      height: calc(100vh - 42px); /* Adjusts for header height */
-    }
-
-    .ace_editor {
-      height: 100% !important;
+      height: calc(100vh - 42px);
       width: 100%;
     }
   </style>
@@ -38,27 +34,32 @@
   <h1>🐍 Python Scratchpad</h1>
   <div id="editor"></div>
 
-  <!-- Ace Editor CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.3/ace.js" integrity="sha512-V1zC5DWlpGdH+6/vSut1+4B/7rq6dN9X0xQhs8SHf0jE4V+X5CWptfJ8zYIfSOPLz5GGd2F1Q7N3+cOC8dTxqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Ace FULL BUILD - all modes/themes included -->
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/ace.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/mode-python.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-github.js"></script>
 
   <script>
     const STORAGE_KEY = "pythonScratchpadCode";
 
-    const editor = ace.edit("editor", {
-      mode: "ace/mode/python",
-      theme: "ace/theme/github", // Light theme
+    const editor = ace.edit("editor");
+    editor.setTheme("ace/theme/github");
+    editor.session.setMode("ace/mode/python");
+    editor.setOptions({
       fontSize: "16px",
       showPrintMargin: false,
       wrap: true,
     });
 
+    // Load from localStorage
     const savedCode = localStorage.getItem(STORAGE_KEY);
     if (savedCode) {
-      editor.setValue(savedCode, -1); // Keep cursor at start
+      editor.setValue(savedCode, -1);
     } else {
       editor.setValue("# Write your Python code here", -1);
     }
 
+    // Auto-save to localStorage
     editor.session.on('change', () => {
       localStorage.setItem(STORAGE_KEY, editor.getValue());
     });
