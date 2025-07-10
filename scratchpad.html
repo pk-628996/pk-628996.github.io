@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python Scratchpad</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.2.0/theme-one-dark.min.css">
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #282c34;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0.5em;
+      background-color: #1c1f26;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    #editor {
+      flex: 1;
+    }
+
+    .cm-editor {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐍 Python Scratchpad</h1>
+  <div id="editor"></div>
+
+  <script type="module">
+    import { EditorView, basicSetup } from "https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@0.21.1/+esm";
+    import { EditorState } from "https://cdn.jsdelivr.net/npm/@codemirror/state@0.24.6/+esm";
+    import { python } from "https://cdn.jsdelivr.net/npm/@codemirror/lang-python@0.21.4/+esm";
+    import { oneDark } from "https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.2.0/+esm";
+
+    const STORAGE_KEY = 'python-scratchpad-code';
+
+    // Load previous code if available
+    const savedCode = localStorage.getItem(STORAGE_KEY) || "# Write your Python code here\n";
+
+    const updateListener = EditorView.updateListener.of(update => {
+      if (update.docChanged) {
+        const code = update.state.doc.toString();
+        localStorage.setItem(STORAGE_KEY, code);
+      }
+    });
+
+    const state = EditorState.create({
+      doc: savedCode,
+      extensions: [
+        basicSetup,
+        python(),
+        oneDark,
+        updateListener,
+        EditorView.lineWrapping,
+      ]
+    });
+
+    const view = new EditorView({
+      state,
+      parent: document.getElementById('editor')
+    });
+  </script>
+</body>
+</html>
