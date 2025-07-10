@@ -49,12 +49,14 @@
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/mode-python.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-github.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-github_dark.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-vibrant_ink.js"></script>
+  
 
   <script>
     const STORAGE_KEY = "pythonScratchpadCode";
 
     const editor = ace.edit("editor");
-    editor.setTheme("ace/theme/github_dark");
+    editor.setTheme("ace/theme/vibrant_ink");
     editor.session.setMode("ace/mode/python");
     editor.setOptions({
       fontSize: "12px",
