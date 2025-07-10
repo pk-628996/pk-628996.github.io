@@ -9,9 +9,9 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
-      font-family: sans-serif;
     }
 
     h1 {
@@ -25,7 +25,12 @@
 
     #editor {
       flex: 1;
-      height: 100%;
+      height: calc(100vh - 42px); /* Adjusts for header height */
+    }
+
+    .ace_editor {
+      height: 100% !important;
+      width: 100%;
     }
   </style>
 </head>
@@ -47,18 +52,15 @@
       wrap: true,
     });
 
-    // Load saved code
     const savedCode = localStorage.getItem(STORAGE_KEY);
     if (savedCode) {
-      editor.setValue(savedCode, -1); // -1 to move cursor to start
+      editor.setValue(savedCode, -1); // Keep cursor at start
     } else {
       editor.setValue("# Write your Python code here", -1);
     }
 
-    // Save code on change
-    editor.session.on('change', function () {
-      const code = editor.getValue();
-      localStorage.setItem(STORAGE_KEY, code);
+    editor.session.on('change', () => {
+      localStorage.setItem(STORAGE_KEY, editor.getValue());
     });
   </script>
 </body>
