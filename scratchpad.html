@@ -1,76 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Python Scratchpad</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: sans-serif;
-      background-color: #1e1e1e;
-      color: #ffffff;
       display: flex;
       flex-direction: column;
+      font-family: sans-serif;
     }
 
     h1 {
       margin: 0;
       padding: 10px;
-      background: #111;
       text-align: center;
+      background: #f5f5f5;
       font-size: 18px;
+      border-bottom: 1px solid #ccc;
     }
 
     #editor {
       flex: 1;
       height: 100%;
     }
-
-    .cm-editor {
-      height: 100%;
-      font-size: 16px;
-    }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.2.0/theme-one-dark.min.css">
 </head>
 <body>
   <h1>🐍 Python Scratchpad</h1>
   <div id="editor"></div>
 
-  <script type="module">
-    import { EditorState } from "https://cdn.jsdelivr.net/npm/@codemirror/state@0.24.6/+esm";
-    import { EditorView, basicSetup } from "https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@0.21.1/+esm";
-    import { oneDark } from "https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.2.0/+esm";
-    import { python } from "https://cdn.jsdelivr.net/npm/@codemirror/lang-python@0.21.4/+esm";
+  <!-- Ace Editor CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.3/ace.js" integrity="sha512-V1zC5DWlpGdH+6/vSut1+4B/7rq6dN9X0xQhs8SHf0jE4V+X5CWptfJ8zYIfSOPLz5GGd2F1Q7N3+cOC8dTxqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    const STORAGE_KEY = "scratchpad-python";
+  <script>
+    const STORAGE_KEY = "pythonScratchpadCode";
 
-    const savedCode = localStorage.getItem(STORAGE_KEY) || "# Write your Python code here\n";
-
-    const updateListener = EditorView.updateListener.of((v) => {
-      if (v.docChanged) {
-        const code = v.state.doc.toString();
-        localStorage.setItem(STORAGE_KEY, code);
-      }
+    const editor = ace.edit("editor", {
+      mode: "ace/mode/python",
+      theme: "ace/theme/github", // Light theme
+      fontSize: "16px",
+      showPrintMargin: false,
+      wrap: true,
     });
 
-    const state = EditorState.create({
-      doc: savedCode,
-      extensions: [
-        basicSetup,
-        python(),
-        oneDark,
-        updateListener,
-        EditorView.lineWrapping
-      ]
-    });
+    // Load saved code
+    const savedCode = localStorage.getItem(STORAGE_KEY);
+    if (savedCode) {
+      editor.setValue(savedCode, -1); // -1 to move cursor to start
+    } else {
+      editor.setValue("# Write your Python code here", -1);
+    }
 
-    new EditorView({
-      state,
-      parent: document.getElementById("editor"),
+    // Save code on change
+    editor.session.on('change', function () {
+      const code = editor.getValue();
+      localStorage.setItem(STORAGE_KEY, code);
     });
   </script>
 </body>
