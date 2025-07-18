@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.2"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.5"/>
   <title>Multi-Project Planner</title>
   <style>
     body {
@@ -21,7 +21,7 @@
       margin-bottom: 20px;
     }
 
-    select, input, button {
+    select, input, button, textarea {
       margin: 5px;
       padding: 10px;
       font-size: 16px;
@@ -43,7 +43,7 @@
       display: none;
     }
 
-    form {
+    form, .edit-form {
       display: none;
       max-width: 600px;
       margin: auto;
@@ -56,8 +56,6 @@
     input, textarea, button[type="submit"] {
       width: 100%;
       margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
     }
 
     button[type="submit"] {
@@ -96,16 +94,23 @@
       font-weight: bold;
     }
 
-    .deleteStep {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #e74c3c;
-      color: white;
-      border: none;
+    .step button {
+      margin-right: 5px;
       padding: 5px 8px;
+      border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 14px;
+    }
+
+    .deleteStep {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .editStep {
+      background: #f39c12;
+      color: white;
     }
 
     #createProjectArea {
@@ -116,177 +121,215 @@
 </head>
 <body>
 
-  <h1>📘 Multi-Project Planner</h1>
+<h1>📘 Multi-Project Planner</h1>
 
-  <div id="projectControls">
-    <select id="projectSelect" style="display:none;"></select>
-    <button id="toggleFormBtn">➕ Add Step</button>
-    <button id="deleteProjectBtn">🗑 Delete Project</button>
+<div id="projectControls">
+  <select id="projectSelect" style="display:none;"></select>
+  <button id="toggleFormBtn">➕ Add Step</button>
+  <button id="deleteProjectBtn">🗑 Delete Project</button>
 
-    <div id="createProjectArea">
-      <input type="text" id="newProjectName" placeholder="New project name" />
-      <button onclick="createProject()">Create Project</button>
-    </div>
+  <div id="createProjectArea">
+    <input type="text" id="newProjectName" placeholder="New project name" />
+    <button onclick="createProject()">Create Project</button>
   </div>
+</div>
 
-  <form id="plannerForm">
-    <input type="text" id="title" placeholder="What are you creating?" required />
-    <textarea id="needs" rows="2" placeholder="What will you need?" required></textarea>
-    <textarea id="how" rows="2" placeholder="How will it be done?" required></textarea>
-    <button type="submit">Add Step ✅</button>
-  </form>
+<form id="plannerForm">
+  <input type="text" id="title" placeholder="What are you creating?" required />
+  <textarea id="needs" rows="2" placeholder="What will you need?" required></textarea>
+  <textarea id="how" rows="2" placeholder="How will it be done?" required></textarea>
+  <button type="submit">Add Step ✅</button>
+</form>
 
-  <div class="steps" id="stepsContainer"></div>
+<!-- Edit Form (Modal Style) -->
+<form id="editForm" class="edit-form">
+  <input type="text" id="editTitle" required />
+  <textarea id="editNeeds" rows="2" required></textarea>
+  <textarea id="editHow" rows="2" required></textarea>
+  <button type="submit">💾 Save Changes</button>
+</form>
 
-  <script>
-    let currentProject = null;
-    const NEW_PROJECT_OPTION = "__new_project__";
+<div class="steps" id="stepsContainer"></div>
 
-    const form = document.getElementById('plannerForm');
-    const stepsContainer = document.getElementById('stepsContainer');
-    const toggleBtn = document.getElementById('toggleFormBtn');
-    const deleteBtn = document.getElementById('deleteProjectBtn');
-    const projectSelect = document.getElementById('projectSelect');
-    const newProjectInput = document.getElementById('newProjectName');
-    const createProjectArea = document.getElementById('createProjectArea');
+<script>
+let currentProject = null;
+const NEW_PROJECT_OPTION = "__new_project__";
 
-    function loadProjects() {
-      const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-      const keys = Object.keys(projects);
-      projectSelect.innerHTML = '';
+const form = document.getElementById('plannerForm');
+const editForm = document.getElementById('editForm');
+const stepsContainer = document.getElementById('stepsContainer');
+const toggleBtn = document.getElementById('toggleFormBtn');
+const deleteBtn = document.getElementById('deleteProjectBtn');
+const projectSelect = document.getElementById('projectSelect');
+const newProjectInput = document.getElementById('newProjectName');
+const createProjectArea = document.getElementById('createProjectArea');
 
-      if (keys.length === 0) {
-        projectSelect.style.display = 'none';
-        createProjectArea.style.display = 'block';
-        deleteBtn.style.display = 'none';
-        toggleBtn.style.display = 'none';
-        form.style.display = 'none';
-        stepsContainer.innerHTML = '';
-        currentProject = null;
-        return;
-      }
+// Edit step index
+let editingIndex = null;
 
-      // Show select, hide input
-      projectSelect.style.display = 'inline-block';
-      createProjectArea.style.display = 'none';
+function loadProjects() {
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  const keys = Object.keys(projects);
+  projectSelect.innerHTML = '';
 
-      keys.forEach(name => {
-        const option = document.createElement('option');
-        option.value = name;
-        option.textContent = name;
-        projectSelect.appendChild(option);
-      });
+  if (keys.length === 0) {
+    projectSelect.style.display = 'none';
+    createProjectArea.style.display = 'block';
+    deleteBtn.style.display = 'none';
+    toggleBtn.style.display = 'none';
+    form.style.display = 'none';
+    stepsContainer.innerHTML = '';
+    return;
+  }
 
-      // "Create new project" option
-      const createOption = document.createElement('option');
-      createOption.value = NEW_PROJECT_OPTION;
-      createOption.textContent = '➕ Create New Project';
-      projectSelect.appendChild(createOption);
+  projectSelect.style.display = 'inline-block';
+  createProjectArea.style.display = 'none';
 
-      if (!currentProject || !projects[currentProject]) {
-        currentProject = keys[0];
-      }
+  keys.forEach(name => {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    projectSelect.appendChild(option);
+  });
 
-      projectSelect.value = currentProject;
-      renderSteps();
-      toggleBtn.style.display = 'inline-block';
-      deleteBtn.style.display = 'inline-block';
-    }
+  const createOption = document.createElement('option');
+  createOption.value = NEW_PROJECT_OPTION;
+  createOption.textContent = '➕ Create New Project';
+  projectSelect.appendChild(createOption);
 
-    function saveProjects(projects) {
-      localStorage.setItem('projects', JSON.stringify(projects));
-    }
+  if (!currentProject || !projects[currentProject]) {
+    currentProject = keys[0];
+  }
 
-    function createProject() {
-      const name = newProjectInput.value.trim();
-      if (!name) return alert("Enter a project name");
-      const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-      if (projects[name]) return alert("Project already exists");
-      projects[name] = [];
-      saveProjects(projects);
-      currentProject = name;
-      newProjectInput.value = '';
-      loadProjects();
-    }
+  projectSelect.value = currentProject;
+  renderSteps();
+  toggleBtn.style.display = 'inline-block';
+  deleteBtn.style.display = 'inline-block';
+}
 
-    function renderSteps() {
-      const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-      const steps = projects[currentProject] || [];
-      stepsContainer.innerHTML = '';
-      steps.forEach((step, index) => {
-        const div = document.createElement('div');
-        div.className = 'step';
-        div.innerHTML = `
-          <h2>${step.title}</h2>
-          <p><span class="label">Need:</span> ${step.needs}</p>
-          <p><span class="label">How:</span> ${step.how}</p>
-          <button class="deleteStep" onclick="deleteStep(${index})">❌</button>
-        `;
-        stepsContainer.appendChild(div);
-      });
-    }
+function saveProjects(projects) {
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
 
-    function deleteStep(index) {
-      const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-      projects[currentProject].splice(index, 1);
-      saveProjects(projects);
-      renderSteps();
-    }
+function createProject() {
+  const name = newProjectInput.value.trim();
+  if (!name) return alert("Enter a project name");
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  if (projects[name]) return alert("Project already exists");
+  projects[name] = [];
+  saveProjects(projects);
+  currentProject = name;
+  newProjectInput.value = '';
+  loadProjects();
+}
 
-    projectSelect.addEventListener('change', () => {
-      const selected = projectSelect.value;
-      if (selected === NEW_PROJECT_OPTION) {
-        createProjectArea.style.display = 'block';
-        toggleBtn.style.display = 'none';
-        deleteBtn.style.display = 'none';
-        form.style.display = 'none';
-        stepsContainer.innerHTML = '';
-        currentProject = null;
-      } else {
-        currentProject = selected;
-        createProjectArea.style.display = 'none';
-        renderSteps();
-        toggleBtn.style.display = 'inline-block';
-        deleteBtn.style.display = 'inline-block';
-      }
-    });
+function renderSteps() {
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  const steps = projects[currentProject] || [];
+  stepsContainer.innerHTML = '';
 
-    toggleBtn.addEventListener('click', () => {
-      form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
-    });
+  steps.forEach((step, index) => {
+    const div = document.createElement('div');
+    div.className = 'step';
+    div.innerHTML = `
+      <h2>${step.title}</h2>
+      <p><span class="label">Need:</span> ${step.needs}</p>
+      <p><span class="label">How:</span> ${step.how}</p>
+      <button class="editStep" onclick="editStep(${index})">✏️ Edit</button>
+      <button class="deleteStep" onclick="deleteStep(${index})">❌ Delete</button>
+    `;
+    stepsContainer.appendChild(div);
+  });
+}
 
-    deleteBtn.addEventListener('click', () => {
-      if (!currentProject) return;
-      if (confirm(`Delete entire project "${currentProject}"?`)) {
-        const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-        delete projects[currentProject];
-        saveProjects(projects);
-        currentProject = null;
-        loadProjects();
-        stepsContainer.innerHTML = '';
-      }
-    });
+function deleteStep(index) {
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  projects[currentProject].splice(index, 1);
+  saveProjects(projects);
+  renderSteps();
+}
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!currentProject) return;
-      const title = document.getElementById('title').value.trim();
-      const needs = document.getElementById('needs').value.trim();
-      const how = document.getElementById('how').value.trim();
-      if (!title || !needs || !how) return;
+function editStep(index) {
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  const step = projects[currentProject][index];
+  document.getElementById('editTitle').value = step.title;
+  document.getElementById('editNeeds').value = step.needs;
+  document.getElementById('editHow').value = step.how;
+  editingIndex = index;
+  editForm.style.display = 'block';
+  form.style.display = 'none';
+}
 
-      const step = { title, needs, how };
-      const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-      if (!projects[currentProject]) projects[currentProject] = [];
-      projects[currentProject].push(step);
-      saveProjects(projects);
-      renderSteps();
-      form.reset();
-      form.style.display = 'none';
-    });
+editForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.getElementById('editTitle').value.trim();
+  const needs = document.getElementById('editNeeds').value.trim();
+  const how = document.getElementById('editHow').value.trim();
 
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  projects[currentProject][editingIndex] = { title, needs, how };
+  saveProjects(projects);
+  renderSteps();
+  editForm.reset();
+  editForm.style.display = 'none';
+  editingIndex = null;
+});
+
+projectSelect.addEventListener('change', () => {
+  const selected = projectSelect.value;
+  if (selected === NEW_PROJECT_OPTION) {
+    createProjectArea.style.display = 'block';
+    toggleBtn.style.display = 'none';
+    deleteBtn.style.display = 'none';
+    form.style.display = 'none';
+    stepsContainer.innerHTML = '';
+    currentProject = null;
+  } else {
+    currentProject = selected;
+    createProjectArea.style.display = 'none';
+    renderSteps();
+    toggleBtn.style.display = 'inline-block';
+    deleteBtn.style.display = 'inline-block';
+  }
+});
+
+toggleBtn.addEventListener('click', () => {
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  editForm.style.display = 'none';
+});
+
+deleteBtn.addEventListener('click', () => {
+  if (!currentProject) return;
+  if (confirm(`Delete entire project "${currentProject}"?`)) {
+    const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+    delete projects[currentProject];
+    saveProjects(projects);
+    currentProject = null;
     loadProjects();
-  </script>
+    stepsContainer.innerHTML = '';
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!currentProject) return;
+
+  const title = document.getElementById('title').value.trim();
+  const needs = document.getElementById('needs').value.trim();
+  const how = document.getElementById('how').value.trim();
+
+  const step = { title, needs, how };
+  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
+  if (!projects[currentProject]) projects[currentProject] = [];
+  projects[currentProject].push(step);
+  saveProjects(projects);
+  renderSteps();
+  form.reset();
+  form.style.display = 'none';
+});
+
+loadProjects();
+</script>
 
 </body>
 </html>
