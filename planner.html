@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Success Planner</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f7fa;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #toggleFormBtn {
+      display: block;
+      margin: 10px auto 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    form {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    input, textarea, button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .steps {
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .step {
+      background: white;
+      padding: 15px;
+      border-left: 5px solid #3498db;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .step h2 {
+      margin: 0 0 8px;
+      color: #3498db;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .step p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 My Project Planner</h1>
+
+  <button id="toggleFormBtn">➕ Add New Step</button>
+
+  <form id="plannerForm">
+    <input type="text" id="title" placeholder="What are you creating?" required />
+    <textarea id="needs" rows="2" placeholder="What will you need?" required></textarea>
+    <textarea id="how" rows="2" placeholder="How will it be done?" required></textarea>
+    <button type="submit">Add Step ✅</button>
+  </form>
+
+  <div class="steps" id="stepsContainer"></div>
+
+  <script>
+    const form = document.getElementById('plannerForm');
+    const stepsContainer = document.getElementById('stepsContainer');
+    const toggleBtn = document.getElementById('toggleFormBtn');
+
+    // Show/hide form
+    toggleBtn.addEventListener('click', () => {
+      form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+    });
+
+    // Load steps from localStorage
+    const savedSteps = JSON.parse(localStorage.getItem('myProjectSteps')) || [];
+    savedSteps.forEach(step => renderStep(step));
+
+    // Form submit handler
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const needs = document.getElementById('needs').value.trim();
+      const how = document.getElementById('how').value.trim();
+
+      if (!title || !needs || !how) return;
+
+      const step = { title, needs, how };
+
+      savedSteps.push(step);
+      localStorage.setItem('myProjectSteps', JSON.stringify(savedSteps));
+
+      renderStep(step);
+      form.reset();
+      form.style.display = 'none';
+    });
+
+    function renderStep(step) {
+      const div = document.createElement('div');
+      div.className = 'step';
+      div.innerHTML = `
+        <h2>${step.title}</h2>
+        <p><span class="label">Need:</span> ${step.needs}</p>
+        <p><span class="label">How:</span> ${step.how}</p>
+      `;
+      stepsContainer.appendChild(div);
+    }
+  </script>
+
+</body>
+</html>
