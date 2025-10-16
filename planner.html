@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+  
+  <!-- Essential SEO Meta Tags -->
+  <meta name="description" content="Multi-project planner and task manager. Organize multiple projects, track tasks, set priorities, and manage deadlines efficiently. Free online project planning tool.">
+  <meta name="keywords" content="project planner, task manager, multi-project planner, project management, task tracking, deadline tracker, pk-628996">
+  <meta name="author" content="pk-628996">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Multi-Project Planner - Free Project Management Tool">
+  <meta property="og:description" content="Organize and manage multiple projects with tasks, priorities, and deadlines. Free online project planning and task management tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pk-628996.github.io/planner.html">
+  <meta property="og:image" content="https://pk-628996.github.io/assets/planner-preview.png">
+  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
      crossorigin="anonymous"></script>
   <title>Multi-Project Planner</title>
@@ -12,326 +26,187 @@
       background: #f4f7fa;
       padding: 20px;
     }
-
     h1 {
       text-align: center;
       margin-bottom: 20px;
     }
-
     #projectControls {
       text-align: center;
       margin-bottom: 20px;
     }
-
     select, input, button, textarea {
       margin: 5px;
       padding: 10px;
       font-size: 16px;
     }
-
     #toggleFormBtn {
       background-color: #3498db;
       color: white;
       border: none;
       border-radius: 5px;
-      display: none;
+      cursor: pointer;
     }
-
-    #deleteProjectBtn {
+    #projectForm {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .project-card {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .task-item {
+      padding: 10px;
+      margin: 5px 0;
+      background: #ecf0f1;
+      border-radius: 4px;
+    }
+    .priority-high { border-left: 5px solid #e74c3c; }
+    .priority-medium { border-left: 5px solid #f39c12; }
+    .priority-low { border-left: 5px solid #27ae60; }
+    .delete-btn {
       background-color: #e74c3c;
       color: white;
       border: none;
-      border-radius: 5px;
-      display: none;
-    }
-
-    form, .edit-form {
-      display: none;
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    input, textarea, button[type="submit"] {
-      width: 100%;
-      margin-bottom: 15px;
-    }
-
-    button[type="submit"] {
-      background-color: #2ecc71;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .steps {
-      max-width: 600px;
-      margin: 40px auto;
-    }
-
-    .step {
-      background: white;
-      padding: 15px;
-      border-left: 5px solid #3498db;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      position: relative;
-    }
-
-    .step h2 {
-      margin: 0 0 8px;
-      color: #3498db;
-    }
-
-    .step p {
-      margin: 5px 0;
-    }
-
-    .label {
-      font-weight: bold;
-    }
-
-    .step button {
-      margin-right: 5px;
-      padding: 5px 8px;
-      border: none;
+      padding: 5px 10px;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 14px;
+      float: right;
     }
-
-    .deleteStep {
-      background: #e74c3c;
+    .export-btn, .import-btn {
+      background-color: #16a085;
       color: white;
-    }
-
-    .editStep {
-      background: #f39c12;
-      color: white;
-    }
-
-    #createProjectArea {
-      display: none;
-      margin-top: 10px;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-<h1>📘 Multi-Project Planner</h1>
-
-<div id="projectControls">
-  <select id="projectSelect" style="display:none;"></select>
-  <button id="toggleFormBtn">➕ Add Step</button>
-  <button id="deleteProjectBtn">🗑 Delete Project</button>
-
-  <div id="createProjectArea">
-    <input type="text" id="newProjectName" placeholder="New project name" />
-    <button onclick="createProject()">Create Project</button>
+  <h1>Multi-Project Planner</h1>
+  <div id="projectControls">
+    <button id="toggleFormBtn" onclick="toggleForm()">+ Add New Project</button>
+    <button class="export-btn" onclick="exportData()">Export Data</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+    <button class="import-btn" onclick="document.getElementById('importFile').click()">Import Data</button>
   </div>
-</div>
-
-<form id="plannerForm">
-  <input type="text" id="title" placeholder="What are you creating?" required />
-  <textarea id="needs" rows="2" placeholder="What will you need?" required></textarea>
-  <textarea id="how" rows="2" placeholder="How will it be done?" required></textarea>
-  <button type="submit">Add Step ✅</button>
-</form>
-
-<!-- Edit Form (Modal Style) -->
-<form id="editForm" class="edit-form">
-  <input type="text" id="editTitle" required />
-  <textarea id="editNeeds" rows="2" required></textarea>
-  <textarea id="editHow" rows="2" required></textarea>
-  <button type="submit">💾 Save Changes</button>
-</form>
-
-<div class="steps" id="stepsContainer"></div>
-
-<script>
-let currentProject = null;
-const NEW_PROJECT_OPTION = "__new_project__";
-
-const form = document.getElementById('plannerForm');
-const editForm = document.getElementById('editForm');
-const stepsContainer = document.getElementById('stepsContainer');
-const toggleBtn = document.getElementById('toggleFormBtn');
-const deleteBtn = document.getElementById('deleteProjectBtn');
-const projectSelect = document.getElementById('projectSelect');
-const newProjectInput = document.getElementById('newProjectName');
-const createProjectArea = document.getElementById('createProjectArea');
-
-// Edit step index
-let editingIndex = null;
-
-function loadProjects() {
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  const keys = Object.keys(projects);
-  projectSelect.innerHTML = '';
-
-  if (keys.length === 0) {
-    projectSelect.style.display = 'none';
-    createProjectArea.style.display = 'block';
-    deleteBtn.style.display = 'none';
-    toggleBtn.style.display = 'none';
-    form.style.display = 'none';
-    stepsContainer.innerHTML = '';
-    return;
-  }
-
-  projectSelect.style.display = 'inline-block';
-  createProjectArea.style.display = 'none';
-
-  keys.forEach(name => {
-    const option = document.createElement('option');
-    option.value = name;
-    option.textContent = name;
-    projectSelect.appendChild(option);
-  });
-
-  const createOption = document.createElement('option');
-  createOption.value = NEW_PROJECT_OPTION;
-  createOption.textContent = '➕ Create New Project';
-  projectSelect.appendChild(createOption);
-
-  if (!currentProject || !projects[currentProject]) {
-    currentProject = keys[0];
-  }
-
-  projectSelect.value = currentProject;
-  renderSteps();
-  toggleBtn.style.display = 'inline-block';
-  deleteBtn.style.display = 'inline-block';
-}
-
-function saveProjects(projects) {
-  localStorage.setItem('projects', JSON.stringify(projects));
-}
-
-function createProject() {
-  const name = newProjectInput.value.trim();
-  if (!name) return alert("Enter a project name");
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  if (projects[name]) return alert("Project already exists");
-  projects[name] = [];
-  saveProjects(projects);
-  currentProject = name;
-  newProjectInput.value = '';
-  loadProjects();
-}
-
-function renderSteps() {
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  const steps = projects[currentProject] || [];
-  stepsContainer.innerHTML = '';
-
-  steps.forEach((step, index) => {
-    const div = document.createElement('div');
-    div.className = 'step';
-    div.innerHTML = `
-      <h2>${step.title}</h2>
-      <p><span class="label">Need:</span> ${step.needs}</p>
-      <p><span class="label">How:</span> ${step.how}</p>
-      <button class="editStep" onclick="editStep(${index})">✏️ Edit</button>
-      <button class="deleteStep" onclick="deleteStep(${index})">❌ Delete</button>
-    `;
-    stepsContainer.appendChild(div);
-  });
-}
-
-function deleteStep(index) {
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  projects[currentProject].splice(index, 1);
-  saveProjects(projects);
-  renderSteps();
-}
-
-function editStep(index) {
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  const step = projects[currentProject][index];
-  document.getElementById('editTitle').value = step.title;
-  document.getElementById('editNeeds').value = step.needs;
-  document.getElementById('editHow').value = step.how;
-  editingIndex = index;
-  editForm.style.display = 'block';
-  form.style.display = 'none';
-}
-
-editForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('editTitle').value.trim();
-  const needs = document.getElementById('editNeeds').value.trim();
-  const how = document.getElementById('editHow').value.trim();
-
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  projects[currentProject][editingIndex] = { title, needs, how };
-  saveProjects(projects);
-  renderSteps();
-  editForm.reset();
-  editForm.style.display = 'none';
-  editingIndex = null;
-});
-
-projectSelect.addEventListener('change', () => {
-  const selected = projectSelect.value;
-  if (selected === NEW_PROJECT_OPTION) {
-    createProjectArea.style.display = 'block';
-    toggleBtn.style.display = 'none';
-    deleteBtn.style.display = 'none';
-    form.style.display = 'none';
-    stepsContainer.innerHTML = '';
-    currentProject = null;
-  } else {
-    currentProject = selected;
-    createProjectArea.style.display = 'none';
-    renderSteps();
-    toggleBtn.style.display = 'inline-block';
-    deleteBtn.style.display = 'inline-block';
-  }
-});
-
-toggleBtn.addEventListener('click', () => {
-  form.style.display = form.style.display === 'none' ? 'block' : 'none';
-  editForm.style.display = 'none';
-});
-
-deleteBtn.addEventListener('click', () => {
-  if (!currentProject) return;
-  if (confirm(`Delete entire project "${currentProject}"?`)) {
-    const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-    delete projects[currentProject];
-    saveProjects(projects);
-    currentProject = null;
-    loadProjects();
-    stepsContainer.innerHTML = '';
-  }
-});
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (!currentProject) return;
-
-  const title = document.getElementById('title').value.trim();
-  const needs = document.getElementById('needs').value.trim();
-  const how = document.getElementById('how').value.trim();
-
-  const step = { title, needs, how };
-  const projects = JSON.parse(localStorage.getItem('projects') || '{}');
-  if (!projects[currentProject]) projects[currentProject] = [];
-  projects[currentProject].push(step);
-  saveProjects(projects);
-  renderSteps();
-  form.reset();
-  form.style.display = 'none';
-});
-
-loadProjects();
-</script>
-
+  <div id="projectForm">
+    <h2>Create New Project</h2>
+    <input type="text" id="projectName" placeholder="Project Name" required /><br/>
+    <textarea id="projectDesc" placeholder="Project Description" rows="3"></textarea><br/>
+    <input type="date" id="projectDeadline" /><br/>
+    <button onclick="addProject()">Create Project</button>
+    <button onclick="toggleForm()">Cancel</button>
+  </div>
+  <div id="projectsContainer"></div>
+  <script>
+    let projects = JSON.parse(localStorage.getItem('projects')) || [];
+    function toggleForm() {
+      const form = document.getElementById('projectForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+    function addProject() {
+      const name = document.getElementById('projectName').value;
+      const desc = document.getElementById('projectDesc').value;
+      const deadline = document.getElementById('projectDeadline').value;
+      if (!name) return alert('Project name required');
+      projects.push({ id: Date.now(), name, desc, deadline, tasks: [] });
+      saveProjects();
+      renderProjects();
+      toggleForm();
+      document.getElementById('projectName').value = '';
+      document.getElementById('projectDesc').value = '';
+      document.getElementById('projectDeadline').value = '';
+    }
+    function deleteProject(id) {
+      projects = projects.filter(p => p.id !== id);
+      saveProjects();
+      renderProjects();
+    }
+    function addTask(projectId) {
+      const taskName = prompt('Enter task name:');
+      const priority = prompt('Enter priority (high/medium/low):', 'medium');
+      if (!taskName) return;
+      const project = projects.find(p => p.id === projectId);
+      project.tasks.push({ id: Date.now(), name: taskName, priority, done: false });
+      saveProjects();
+      renderProjects();
+    }
+    function deleteTask(projectId, taskId) {
+      const project = projects.find(p => p.id === projectId);
+      project.tasks = project.tasks.filter(t => t.id !== taskId);
+      saveProjects();
+      renderProjects();
+    }
+    function toggleTask(projectId, taskId) {
+      const project = projects.find(p => p.id === projectId);
+      const task = project.tasks.find(t => t.id === taskId);
+      task.done = !task.done;
+      saveProjects();
+      renderProjects();
+    }
+    function saveProjects() {
+      localStorage.setItem('projects', JSON.stringify(projects));
+    }
+    function renderProjects() {
+      const container = document.getElementById('projectsContainer');
+      container.innerHTML = '';
+      projects.forEach(project => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+          <h2>${project.name}</h2>
+          <p>${project.desc}</p>
+          <p><strong>Deadline:</strong> ${project.deadline || 'No deadline'}</p>
+          <button onclick="addTask(${project.id})">+ Add Task</button>
+          <button class="delete-btn" onclick="deleteProject(${project.id})">Delete Project</button>
+          <div>
+            ${project.tasks.map(task => `
+              <div class="task-item priority-${task.priority}" style="${task.done ? 'text-decoration: line-through;' : ''}">
+                <input type="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTask(${project.id}, ${task.id})" />
+                ${task.name} (${task.priority})
+                <button onclick="deleteTask(${project.id}, ${task.id})" style="float:right;background:#e74c3c;color:white;border:none;padding:2px 5px;border-radius:3px;cursor:pointer;">Delete</button>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+    function exportData() {
+      const dataStr = JSON.stringify(projects, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'projects-backup.json';
+      a.click();
+    }
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          projects = JSON.parse(e.target.result);
+          saveProjects();
+          renderProjects();
+          alert('Data imported successfully!');
+        } catch (err) {
+          alert('Error importing data: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+    renderProjects();
+  </script>
 </body>
 </html>
