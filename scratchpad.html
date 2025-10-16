@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  
+  <!-- Essential SEO Meta Tags -->
+  <meta name="description" content="Free online Python scratchpad and code editor. Write, test, and save Python code in your browser with syntax highlighting and auto-save functionality.">
+  <meta name="keywords" content="Python scratchpad, Python editor, online Python, code editor, Python IDE, coding practice, pk-628996">
+  <meta name="author" content="pk-628996">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Python Scratchpad - Free Online Python Editor">
+  <meta property="og:description" content="Write and test Python code in your browser. Free online Python scratchpad with syntax highlighting and auto-save. Perfect for learning and quick coding.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pk-628996.github.io/scratchpad.html">
+  <meta property="og:image" content="https://pk-628996.github.io/assets/scratchpad-preview.png">
+  
   <title>Python Scratchpad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
@@ -16,7 +30,6 @@
       display: flex;
       flex-direction: column;
     }
-
     h1 {
       margin: 0;
       padding: 0.5em;
@@ -24,18 +37,15 @@
       font-size: 1.2em;
       text-align: center;
     }
-
     #editor {
       flex: 1;
     }
-
     .cm-editor {
       height: 100%;
     }
     .ace_gutter {
       width: 35px !important; /* default is ~50px */
     }
-
     .ace_gutter-cell {
       padding-left: 2px;
       padding-right: 2px;
@@ -45,18 +55,14 @@
 <body>
   <h1>🐍 Python Scratchpad</h1>
   <div id="editor"></div>
-
   <!-- Ace FULL BUILD - all modes/themes included -->
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/ace.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/mode-python.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-github.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-github_dark.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-vibrant_ink.js"></script>
-  
-
   <script>
     const STORAGE_KEY = "pythonScratchpadCode";
-
     const editor = ace.edit("editor");
     editor.setTheme("ace/theme/vibrant_ink");
     editor.session.setMode("ace/mode/python");
@@ -66,7 +72,6 @@
       wrap: false,
       showInvisibles: true
     });
-
     // Load from localStorage
     const savedCode = localStorage.getItem(STORAGE_KEY);
     if (savedCode) {
@@ -74,7 +79,6 @@
     } else {
       editor.setValue("# Write your Python code here", -1);
     }
-
     // Auto-save to localStorage
     editor.session.on('change', () => {
       localStorage.setItem(STORAGE_KEY, editor.getValue());
