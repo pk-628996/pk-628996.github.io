@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  
+  <!-- Essential SEO Meta Tags -->
+  <meta name="description" content="Simple and effective to-do list application. Create, manage, and track your tasks with priorities and due dates. Free online task manager with local storage.">
+  <meta name="keywords" content="to-do list, task manager, task list, productivity app, task organizer, checklist, pk-628996">
+  <meta name="author" content="pk-628996">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="To-Do List - Free Task Manager">
+  <meta property="og:description" content="Manage your tasks efficiently with this simple to-do list app. Add tasks, set priorities, track completion. Free online task manager with local storage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pk-628996.github.io/to-dolist.html">
+  <meta property="og:image" content="https://pk-628996.github.io/assets/todo-preview.png">
+  
   <title>To-Do List</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
@@ -13,12 +27,10 @@
       margin: 0;
       padding: 20px;
     }
-
     h1 {
       text-align: center;
       color: #333;
     }
-
     #todoApp {
       max-width: 500px;
       margin: 0 auto;
@@ -27,70 +39,55 @@
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
     input[type="text"] {
       width: 80%;
       padding: 10px;
       font-size: 16px;
     }
-
     button {
       padding: 10px 15px;
       font-size: 16px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
     }
-
     ul {
       list-style: none;
       padding: 0;
-      margin-top: 20px;
     }
-
     li {
-      background: #eee;
       padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
+      margin: 5px 0;
+      background: #f0f0f0;
+      border-radius: 5px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     li.done {
       text-decoration: line-through;
-      color: #888;
+      opacity: 0.6;
     }
-
-    .deleteBtn {
+    .delete-btn {
       background: #e74c3c;
-      margin-left: 10px;
-      border: none;
       color: white;
-      padding: 5px 8px;
-      border-radius: 4px;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
       cursor: pointer;
-    }
-
-    .checkbox {
-      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>📝 To-Do List</h1>
+  <h1>To-Do List</h1>
   <div id="todoApp">
-    <input type="text" id="taskInput" placeholder="Add a task..." />
-    <button onclick="addTask()">Add</button>
+    <input type="text" id="taskInput" placeholder="Enter a new task..." />
+    <button onclick="addTask()">Add Task</button>
     <ul id="taskList"></ul>
   </div>
-
   <script>
-    let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
     function renderTasks() {
       const taskList = document.getElementById('taskList');
       taskList.innerHTML = '';
@@ -98,42 +95,34 @@
         const li = document.createElement('li');
         li.className = task.done ? 'done' : '';
         li.innerHTML = `
-          <span>
-            <input type="checkbox" class="checkbox" onclick="toggleTask(${index})" ${task.done ? 'checked' : ''}>
-            ${task.text}
-          </span>
-          <button class="deleteBtn" onclick="deleteTask(${index})">❌</button>
+          <span onclick="toggleTask(${index})" style="cursor:pointer;flex:1;">${task.text}</span>
+          <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
         `;
         taskList.appendChild(li);
       });
     }
-
     function addTask() {
       const input = document.getElementById('taskInput');
       const text = input.value.trim();
-      if (text === '') return;
+      if (!text) return alert('Please enter a task');
       tasks.push({ text, done: false });
       saveTasks();
+      renderTasks();
       input.value = '';
-      renderTasks();
     }
-
-    function toggleTask(index) {
-      tasks[index].done = !tasks[index].done;
-      saveTasks();
-      renderTasks();
-    }
-
     function deleteTask(index) {
       tasks.splice(index, 1);
       saveTasks();
       renderTasks();
     }
-
-    function saveTasks() {
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+    function toggleTask(index) {
+      tasks[index].done = !tasks[index].done;
+      saveTasks();
+      renderTasks();
     }
-
+    document.getElementById('taskInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addTask();
+    });
     renderTasks();
   </script>
 </body>
