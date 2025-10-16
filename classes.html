@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Essential SEO Meta Tags -->
+    <meta name="description" content="Watch embedded educational YouTube videos on various topics. Access curated video content for learning and educational purposes.">
+    <meta name="keywords" content="educational videos, YouTube videos, embedded videos, online classes, video learning, pk-628996">
+    <meta name="author" content="pk-628996">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Educational Classes - Video Collection">
+    <meta property="og:description" content="Access curated educational YouTube videos on various topics. Free video learning resources for students.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pk-628996.github.io/classes.html">
+    <meta property="og:image" content="https://pk-628996.github.io/assets/classes-preview.png">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
      crossorigin="anonymous"></script>
     <title>Embedded YouTube Videos from Various URLs</title>
 </head>
 <body>
     <h1>Embedded YouTube Videos</h1>
-
     <div id="video-container"></div>
-
     <script>
         // Array of YouTube video URLs from different formats
         const videoUrls = [
@@ -21,17 +33,14 @@
             "https://youtu.be/f4G5oreiplY?si=zvDekGy-BQp6ZBUe",
             "https://youtu.be/B9Z4p6ll5o8?si=Sj0lJ5gT_eahtimk"
         ];
-
         // Get the video container element
         const videoContainer = document.getElementById("video-container");
-
         // Function to extract the video ID using regular expressions
         function extractVideoId(url) {
             const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\/)|youtu\.be\/)([^&?/]{11})/;
             const match = url.match(regex);
             return match ? match[1] : null;
         }
-
         // Function to convert the extracted video ID into an embed URL
         function convertToEmbedUrl(url) {
             const videoId = extractVideoId(url);
@@ -40,7 +49,6 @@
             }
             return null;
         }
-
         // Loop through each URL, convert it to an embed URL if valid, and create an iframe element
         videoUrls.forEach(url => {
             const embedUrl = convertToEmbedUrl(url);
@@ -52,7 +60,6 @@
                 iframe.frameBorder = "0";
                 iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
                 iframe.allowFullscreen = true;
-
                 // Append the iframe to the video container
                 videoContainer.appendChild(iframe);
             } else {
