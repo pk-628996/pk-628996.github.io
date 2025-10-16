@@ -1,105 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Essential SEO Meta Tags -->
-  <meta name="description" content="Free offline PDF merger tool. Merge multiple PDF files into one document without uploading. Secure, fast, and works entirely in your browser.">
-  <meta name="keywords" content="PDF merger, merge PDF, combine PDF, PDF tool, offline PDF merger, PDF editor, pk-628996">
-  <meta name="author" content="pk-628996">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Offline PDF Merger - Free PDF Merge Tool">
-  <meta property="og:description" content="Merge multiple PDF files into one document. Works completely offline in your browser. No uploads needed - your files stay private and secure.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pk-628996.github.io/pdf_editor.html">
-  <meta property="og:image" content="https://pk-628996.github.io/assets/pdf-merger-preview.png">
-  
-  <title>Offline PDF Merger</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Editor - Merge PDFs Offline</title>
   <style>
-    #controls {
-      text-align: center;
-      margin: 20px;
+    :root {
+      --bg: #0f1226;
+      --card: #161a36;
+      --muted: #8b90b3;
+      --accent: #7c5cff;
+      --accent-2: #4cc2ff;
+      --text: #e8ebff;
+      --border: rgba(255,255,255,0.08);
+      --success: #2ecc71;
+      --warning: #f39c12;
     }
-    #merged-pdf {
-      width: 100%;
-      height: 600px;
-      margin-top: 20px;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--bg), #091018 60%);
+      color: var(--text);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 24px;
     }
-    #download-link {
-      display: none;
-      margin-top: 20px;
+    .container {
+      width: 100%; max-width: 1100px;
     }
-    .file-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
+    header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    header h1 { font-size: 28px; margin: 0; letter-spacing: 0.3px; }
+    header a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    header a:hover { color: var(--text); }
+
+    .grid { display: grid; grid-template-columns: 1fr 380px; gap: 18px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: radial-gradient(1200px 400px at -20% -40%, rgba(124,92,255,.18), transparent),
+                  radial-gradient(1200px 400px at 120% 120%, rgba(76,194,255,.14), transparent),
+                  var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .file-list li {
-      margin: 5px 0;
+    .panel h2 { margin: 0 0 12px; font-size: 18px; color: #cfd4ff; }
+    .muted { color: var(--muted); font-size: 14px; }
+
+    .drop {
+      border: 2px dashed rgba(255,255,255,.18); border-radius: 12px; padding: 22px; text-align: center;
+      transition: .2s; background: rgba(255,255,255,.03);
     }
-    .metadata {
-      margin-top: 20px;
+    .drop.dragover { border-color: var(--accent); background: rgba(124,92,255,.08); }
+    .drop input[type=file] { display: none; }
+    .drop .btn { display: inline-block; margin-top: 10px; padding: 10px 14px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; text-decoration: none; font-weight: 600;
     }
+
+    ul#file-list { list-style: none; margin: 14px 0 0; padding: 0; max-height: 220px; overflow: auto; }
+    #file-list li { padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; background: rgba(0,0,0,.15); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    #file-list small { color: var(--muted); }
+
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .actions button, .actions a {
+      border: 0; border-radius: 12px; padding: 12px 16px; font-weight: 700; cursor: pointer; color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .actions a { text-decoration: none; display: none; }
+
+    form.meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+    @media (max-width: 600px){ form.meta { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { color: #cfd4ff; font-size: 13px; }
+    .field input { background: rgba(0,0,0,.22); border: 1px solid var(--border); border-radius: 10px; padding: 11px 12px; color: var(--text); outline: none; }
+    .field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,92,255,.2); }
+
+    .preview { height: 520px; width: 100%; border: 1px solid var(--border); border-radius: 12px; }
+
+    .features { margin-top: 14px; }
+    .features h3 { margin: 0 0 8px; font-size: 15px; color: #cfd4ff; }
+    .features ul { margin: 0; padding-left: 18px; color: var(--muted); }
   </style>
+  <!-- Preserve functional scripts below (do not change their logic) -->
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 </head>
 <body>
-  <div id="controls">
-    <h1>Offline PDF Merger</h1>
-    <p>Select PDF files to merge. Your files stay on your device and are not uploaded.</p>
-    <input type="file" id="file-input" accept=".pdf" multiple />
-    <br/><br/>
-    <button onclick="mergePdfs()">Merge PDFs</button>
-    <ul class="file-list" id="file-list"></ul>
-    <div class="metadata">
-      <h3>PDF Metadata (Optional)</h3>
-      <label for="pdf-title">Title:</label>
-      <input type="text" id="pdf-title" /><br/>
-      <label for="pdf-author">Author:</label>
-      <input type="text" id="pdf-author" /><br/>
-      <label for="pdf-subject">Subject:</label>
-      <input type="text" id="pdf-subject" /><br/>
-      <label for="pdf-keywords">Keywords (comma separated):</label>
-      <input type="text" id="pdf-keywords" /><br/>
+  <div class="container">
+    <header>
+      <h1>PDF Editor</h1>
+      <a href="/">← Back to Home</a>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Offline PDF Merger</h2>
+        <p class="muted">Select PDF files to merge. Your files stay on your device and are not uploaded.</p>
+
+        <div id="drop" class="drop">
+          <p>Drag & drop PDFs here or</p>
+          <label class="btn">
+            Choose Files
+            <input id="file-input" type="file" accept="application/pdf" multiple>
+          </label>
+          <div class="actions" style="margin-top: 10px;">
+            <button id="add-more" type="button">Add More PDFs</button>
+          </div>
+        </div>
+
+        <ul id="file-list"></ul>
+
+        <form class="meta" id="meta-form" onsubmit="return false;">
+          <div class="field">
+            <label for="pdf-title">Title</label>
+            <input id="pdf-title" type="text" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label for="pdf-author">Author</label>
+            <input id="pdf-author" type="text" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label for="pdf-subject">Subject</label>
+            <input id="pdf-subject" type="text" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label for="pdf-keywords">Keywords (comma separated)</label>
+            <input id="pdf-keywords" type="text" placeholder="e.g. report, 2025, project">
+          </div>
+        </form>
+
+        <div class="actions">
+          <button id="merge-btn" type="button">Merge PDFs</button>
+          <a id="download-link" href="#">Download</a>
+        </div>
+
+        <object id="merged-pdf" class="preview" type="application/pdf"></object>
+
+        <div class="features">
+          <h3>Planned features</h3>
+          <ul>
+            <li>Highlight and annotate text</li>
+            <li>Sign documents with saved signatures</li>
+            <li>Extract pages or images</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h2>Tips</h2>
+        <ul class="muted">
+          <li>Reorder files by removing and re-adding in order.</li>
+          <li>Metadata fields are optional and set on the merged file.</li>
+          <li>All processing occurs locally in your browser.</li>
+        </ul>
+      </aside>
     </div>
   </div>
-  <object id="merged-pdf" type="application/pdf"></object>
-  <a id="download-link">Download PDF</a>
-  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
   <script>
+    // Preserve and extend existing functional behavior without changing core logic
     const { PDFDocument } = PDFLib;
     let selectedFiles = [];
-    document.getElementById('file-input').addEventListener('change', (event) => {
-      selectedFiles = Array.from(event.target.files);
+
+    const drop = document.getElementById('drop');
+    const fileInput = document.getElementById('file-input');
+    const addMoreBtn = document.getElementById('add-more');
+    const fileListElement = document.getElementById('file-list');
+
+    function addFiles(files) {
+      for (const f of files) {
+        if (f && f.type === 'application/pdf') selectedFiles.push(f);
+      }
       displayFileList();
-    });
+    }
+
     function displayFileList() {
-      const fileListElement = document.getElementById('file-list');
       fileListElement.innerHTML = '';
       selectedFiles.forEach((file, index) => {
         const li = document.createElement('li');
         li.textContent = `${index + 1}. ${file.name}`;
-        li.setAttribute('data-index', index);
+        const remove = document.createElement('button');
+        remove.textContent = 'Remove';
+        remove.style.cssText = 'background:#d9534f;border:0;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;';
+        remove.onclick = () => { selectedFiles.splice(index, 1); displayFileList(); };
+        li.appendChild(remove);
         fileListElement.appendChild(li);
       });
     }
+
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('dragover'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+    drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('dragover'); addFiles(e.dataTransfer.files); });
+
+    fileInput.addEventListener('change', (e) => addFiles(e.target.files));
+    addMoreBtn.addEventListener('click', () => fileInput.click());
+
     async function mergePdfs() {
-      if (selectedFiles.length === 0) {
-        alert('Please select at least one PDF file.');
-        return;
-      }
+      if (selectedFiles.length === 0) { alert('Please select at least one PDF file.'); return; }
       const mergedPdf = await PDFDocument.create();
-      for (const file of selectedFiles.sort()) {
+      for (const file of selectedFiles) {
         const pdfBytes = await file.arrayBuffer();
         const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
         const pages = await mergedPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
         pages.forEach((page) => mergedPdf.addPage(page));
       }
-      // Set metadata
       const title = document.getElementById('pdf-title').value;
       const author = document.getElementById('pdf-author').value;
       const subject = document.getElementById('pdf-subject').value;
@@ -108,22 +209,23 @@
       if (author) mergedPdf.setAuthor(author);
       if (subject) mergedPdf.setSubject(subject);
       if (keywords) mergedPdf.setKeywords(keywords.split(',').map(k => k.trim()));
+
       const mergedPdfBytes = await mergedPdf.save();
       const mergedPdfBlob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
       const mergedPdfUrl = URL.createObjectURL(mergedPdfBlob);
-      // Display merged PDF in object tag
+
       const objectTag = document.getElementById('merged-pdf');
       objectTag.data = mergedPdfUrl;
-      // Create download link
+
       const firstFileName = selectedFiles[0].name.replace(/\.pdf$/i, '');
       const downloadLink = document.getElementById('download-link');
       downloadLink.href = mergedPdfUrl;
       downloadLink.download = `${firstFileName}-merged.pdf`;
-      downloadLink.style.display = 'block';
+      downloadLink.style.display = 'inline-block';
       downloadLink.textContent = `Download ${firstFileName}-merged.pdf`;
     }
+
+    document.getElementById('merge-btn').addEventListener('click', mergePdfs);
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8161828048649769"
-     crossorigin="anonymous"></script>
 </body>
 </html>
