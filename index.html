@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Web Tools - A collection of productivity tools including PDF Editor, Scratchpad, Planner, and To-Do List">
-    <meta name="keywords" content="PDF editor, scratchpad, planner, to-do list, productivity tools, web tools">
+    <meta name="description" content="Personal Web Tools - A collection of productivity tools including PDF Editor, Scratchpad, Planner, To-Do List, and Previous Year Questions (PYQs)">
+    <meta name="keywords" content="PDF editor, scratchpad, planner, to-do list, PYQs, previous year questions, productivity tools, web tools">
     <meta name="author" content="pk-628996">
     <meta property="og:title" content="PK Web Tools - Productivity Suite">
-    <meta property="og:description" content="Free online tools for PDF editing, note-taking, planning, and task management">
+    <meta property="og:description" content="Free online tools for PDF editing, note-taking, planning, task management, and PYQs">
     <meta property="og:type" content="website">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-CLIENT-ID"
+         crossorigin="anonymous"></script>
+    
     <title>PK Web Tools - Your Personal Productivity Suite</title>
     <style>
         * {
@@ -31,6 +36,44 @@
             margin: 0 auto;
             padding: 20px;
             flex: 1;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav li {
+            display: inline;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
         }
         
         header {
@@ -174,10 +217,31 @@
             .tools-grid {
                 grid-template-columns: 1fr;
             }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 1em;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pdf_editor">PDF Editor</a></li>
+            <li><a href="/scratchpad">Scratchpad</a></li>
+            <li><a href="/planner">Planner</a></li>
+            <li><a href="/to-dolist">To-Do List</a></li>
+            <li><a href="/pyqs">PYQs</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
         <header>
             <h1>🚀 PK Web Tools</h1>
@@ -190,7 +254,7 @@
         </div>
         
         <div class="tools-grid">
-            <a href="/pdf_editor" class="tool-card">
+            <a class="tool-card" href="/pdf_editor">
                 <div>
                     <div class="tool-icon">📄</div>
                     <h3>PDF Editor</h3>
@@ -199,7 +263,7 @@
                 <span class="tool-button">Launch PDF Editor</span>
             </a>
             
-            <a href="/scratchpad" class="tool-card">
+            <a class="tool-card" href="/scratchpad">
                 <div>
                     <div class="tool-icon">💻</div>
                     <h3>Scratchpad</h3>
@@ -208,7 +272,7 @@
                 <span class="tool-button">Open Scratchpad</span>
             </a>
             
-            <a href="/planner" class="tool-card">
+            <a class="tool-card" href="/planner">
                 <div>
                     <div class="tool-icon">📅</div>
                     <h3>Project Planner</h3>
@@ -217,7 +281,7 @@
                 <span class="tool-button">Start Planning</span>
             </a>
             
-            <a href="/to-dolist" class="tool-card">
+            <a class="tool-card" href="/to-dolist">
                 <div>
                     <div class="tool-icon">✅</div>
                     <h3>To-Do List</h3>
@@ -225,17 +289,27 @@
                 </div>
                 <span class="tool-button">Manage Tasks</span>
             </a>
+            
+            <a class="tool-card" href="/pyqs">
+                <div>
+                    <div class="tool-icon">📚</div>
+                    <h3>PYQs</h3>
+                    <p>Access Previous Year Questions for exam preparation and study materials.</p>
+                </div>
+                <span class="tool-button">View PYQs</span>
+            </a>
         </div>
         
         <div class="about-section" id="about">
             <h2>📖 About This Suite</h2>
             <p>This is a collection of web-based productivity tools built with privacy and usability in mind. All tools run entirely in your browser, meaning your data stays on your device and is never uploaded to any server.</p>
-            <p><strong>Key Features:</strong></p>
+            <h3>Key Features:</h3>
             <ul style="margin-left: 20px; line-height: 2;">
                 <li>🔒 100% Privacy - Your data never leaves your device</li>
                 <li>⚡ Fast and Lightweight - No heavy frameworks</li>
                 <li>📱 Mobile Friendly - Works on all devices</li>
                 <li>🆓 Completely Free - No ads, no subscriptions</li>
+                <li>📚 PYQs - Previous Year Questions for exam prep</li>
             </ul>
         </div>
     </div>
