@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Editor Mastery - PK Web Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .technique-box {
+            background: #f5f7fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box strong {
+            color: #856404;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box strong {
+            color: #2e7d32;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: scale(1.05);
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 PDF Editor Mastery</h1>
+            <p class="subtitle">Advanced techniques for professional PDF manipulation</p>
+        </header>
+        
+        <section>
+            <h2>🎯 Introduction</h2>
+            <p>The PK Web Tools PDF Editor is a powerful, privacy-focused tool for manipulating PDF files entirely within your browser. Unlike cloud-based PDF services that upload your documents to remote servers, our editor processes everything locally on your device, ensuring complete confidentiality and security.</p>
+            
+            <p>This guide will teach you advanced techniques for merging, organizing, and customizing PDF documents. Whether you're combining research papers, creating document portfolios, or preparing reports, you'll learn how to work efficiently while maintaining complete control over your files.</p>
+        </section>
+        
+        <section>
+            <h2>🔧 Core Features Explained</h2>
+            
+            <div class="technique-box">
+                <h3>📂 File Selection and Upload</h3>
+                <p>The PDF Editor supports two methods for adding files:</p>
+                <ul>
+                    <li><strong>Drag and Drop:</strong> Simply drag PDF files from your file explorer directly into the designated drop zone. The editor highlights the area when files are detected.</li>
+                    <li><strong>File Browser:</strong> Click "Select PDF Files" to open your system's file browser and choose one or multiple files at once. Hold Ctrl (Windows/Linux) or Cmd (Mac) to select multiple files.</li>
+                </ul>
+                <p><strong>Pro tip:</strong> You can add files in multiple batches. If you forget a file, simply add more files and they'll be appended to your current list.</p>
+            </div>
+            
+            <div class="technique-box">
+                <h3>🔄 Reordering Documents</h3>
+                <p>The order in which files appear in the list determines the order they'll be merged. To reorder:</p>
+                <ol>
+                    <li>Look for the ☰ (hamburger) icon next to each file name</li>
+                    <li>Click and hold on this icon</li>
+                    <li>Drag the file to its new position</li>
+                    <li>Release to drop it in place</li>
+                </ol>
+                <p>This is crucial when creating documents with a specific flow, such as table of contents followed by chapters in order.</p>
+            </div>
+            
+            <div class="technique-box">
+                <h3>🗑️ Removing Files</h3>
+                <p>Made a mistake or added the wrong file? Each file in the list has a remove button (usually an X or trash icon). Click it to remove that specific file from the merge list without affecting others.</p>
+            </div>
+            
+            <div class="technique-box">
+                <h3>📝 Metadata Customization</h3>
+                <p>Before merging, you can set professional metadata for your combined PDF:</p>
+                <ul>
+                    <li><strong>Title:</strong> The document's official title (appears in PDF readers and file properties)</li>
+                    <li><strong>Author:</strong> Your name or your organization's name</li>
+                    <li><strong>Subject:</strong> A brief description of the document's content</li>
+                    <li><strong>Keywords:</strong> Comma-separated terms for searchability and organization</li>
+                </ul>
+                <p>While optional, metadata makes documents more professional and easier to organize in large collections.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>✨ Advanced Techniques</h2>
+            
+            <h3>Creating Document Portfolios</h3>
+            <p>Combine multiple related documents into a single portfolio PDF:</p>
+            <ol>
+                <li>Gather all documents you want to include (resumes, certificates, letters of recommendation)</li>
+                <li>Add them to the PDF Editor in logical order</li>
+                <li>Set metadata with your name as author and "Professional Portfolio" as title</li>
+                <li>Merge and download</li>
+            </ol>
+            
+            <h3>Combining Research Papers</h3>
+            <p>Academic researchers often need to combine papers for review or submission:</p>
+            <ol>
+                <li>Add all papers in chronological or thematic order</li>
+                <li>Use metadata to indicate the collection purpose (e.g., "Literature Review - Machine Learning 2024")</li>
+                <li>Add relevant keywords for easy searching later</li>
+            </ol>
+            
+            <h3>Creating Multi-Chapter Documents</h3>
+            <p>Authors and content creators can assemble chapters into complete books:</p>
+            <ol>
+                <li>Ensure each chapter is a separate PDF file</li>
+                <li>Add files in chapter order (Chapter 1, Chapter 2, etc.)</li>
+                <li>Set comprehensive metadata including book title and author</li>
+                <li>The resulting PDF maintains the page numbers and formatting of each chapter</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>💡 Professional Tips</h2>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #1: Verify Before Merging</strong>
+                <p>Always double-check the file list before clicking merge. Ensure files are in the correct order and you haven't accidentally included duplicates. This saves time and prevents errors.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #2: Use Descriptive Filenames</strong>
+                <p>The downloaded file is automatically named based on your first file. Use descriptive names for source files (e.g., "Annual_Report_2024_Part1.pdf") so the merged file gets a meaningful name like "Annual_Report_2024_Part1-merged.pdf".</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #3: Process Large Files in Batches</strong>
+                <p>If working with many large files, consider merging in batches of 5-10 files, then combining the results. This prevents browser memory issues and provides better control over the final structure.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #4: Leverage Metadata for Organization</strong>
+                <p>When creating document collections, use consistent metadata conventions. For example, all project proposals could use "Proposal" as a keyword, making them easy to find later.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #5: Preview After Merging</strong>
+                <p>The merged PDF displays in the browser before download. Always scroll through to verify everything merged correctly, pages are in order, and content is readable.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>⚠️ Common Pitfalls to Avoid</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Password-Protected PDFs</strong>
+                <p>The editor attempts to handle encrypted PDFs with the <code>ignoreEncryption</code> option, but heavily protected files may fail to merge. If possible, remove passwords before merging.</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ Browser Memory Limitations</strong>
+                <p>Very large PDFs (100+ MB each) or merging 20+ files simultaneously may cause browser slowdowns or crashes. If this happens, try working with smaller batches or close other browser tabs to free up memory.</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ Non-PDF Files</strong>
+                <p>The editor only works with PDF files. Attempting to add images, Word documents, or other formats will result in errors. Convert files to PDF format first using your operating system's built-in tools.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🔒 Privacy and Security</h2>
+            <p>One of the most important features of the PK Web Tools PDF Editor is its commitment to privacy:</p>
+            <ul>
+                <li><strong>No Uploads:</strong> Your files are never transmitted to any server. All processing happens locally using JavaScript in your browser.</li>
+                <li><strong>No Storage:</strong> Files aren't saved to any database. Once you close the page or refresh, they're gone from browser memory.</li>
+                <li><strong>No Tracking:</strong> We don't use analytics to track which files you merge or how you use the tool.</li>
+                <li><strong>Verifiable:</strong> Because the tool runs in your browser, you can disconnect from the internet after loading the page and it will still work. This proves no data is being transmitted.</li>
+            </ul>
+            <p>This makes the PDF Editor ideal for working with confidential documents like legal contracts, medical records, financial statements, or any sensitive information that you wouldn't want to upload to a cloud service.</p>
+        </section>
+        
+        <section>
+            <h2>🚀 Next Steps</h2>
+            <p>Now that you understand the PDF Editor's capabilities, try these practice exercises:</p>
+            <ol>
+                <li>Merge 3-5 sample PDFs and experiment with different ordering</li>
+                <li>Create a merged document with complete metadata</li>
+                <li>Try the drag-and-drop reordering feature</li>
+                <li>Review the preview before downloading to verify the result</li>
+            </ol>
+            <p>For more productivity tips across all tools, check out our <a href="/tutorial-productivity-tips.html">Productivity Power Tips</a> guide.</p>
+        </section>
+        
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
