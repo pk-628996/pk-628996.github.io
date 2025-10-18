@@ -2,127 +2,289 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  
-  <!-- Essential SEO Meta Tags -->
-  <meta name="description" content="Simple and effective to-do list application. Create, manage, and track your tasks with priorities and due dates. Free online task manager with local storage.">
-  <meta name="keywords" content="to-do list, task manager, task list, productivity app, task organizer, checklist, pk-628996">
-  <meta name="author" content="pk-628996">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="To-Do List - Free Task Manager">
-  <meta property="og:description" content="Manage your tasks efficiently with this simple to-do list app. Add tasks, set priorities, track completion. Free online task manager with local storage.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pk-628996.github.io/to-dolist.html">
-  <meta property="og:image" content="https://pk-628996.github.io/assets/todo-preview.png">
-  
-  <title>To-Do List</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
-     crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✓ To-Do List - Task Manager | PK Web Tools</title>
+  <meta name="description" content="Simple, efficient to-do list app that saves tasks locally. Privacy-first task management with no registration required. Perfect for students, professionals, and anyone who wants to stay organized." />
+  <meta name="keywords" content="todo list, task manager, productivity, local storage, privacy, browser app, task tracking, organization" />
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
       color: #333;
     }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    header { background: rgba(255,255,255,0.95); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    header h1 { font-size: 28px; color: #4c5267; margin-bottom: 8px; }
+    .back-link { color: #667eea; text-decoration: none; font-weight: 600; }
+    .back-link:hover { color: #764ba2; }
+    .content-section { 
+      background: rgba(255,255,255,0.95); 
+      border-radius: 12px; 
+      padding: 24px; 
+      margin-bottom: 20px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .content-section h2 { 
+      color: #667eea; 
+      font-size: 20px; 
+      margin-bottom: 16px; 
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 8px;
+    }
+    .content-section p, .content-section ul { 
+      color: #555; 
+      line-height: 1.6; 
+      margin-bottom: 12px;
+    }
+    .content-section ul { padding-left: 20px; }
+    .content-section strong { color: #333; }
+    .example-tasks {
+      background: #f8f9ff;
+      border: 1px solid #e1e5f2;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 12px 0;
+      font-family: monospace;
+    }
+    .example-tasks div {
+      padding: 4px 0;
+      color: #666;
+    }
     #todoApp {
-      max-width: 500px;
-      margin: 0 auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    input[type="text"] {
-      width: 80%;
-      padding: 10px;
-      font-size: 16px;
-    }
-    button {
-      padding: 10px 15px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      padding: 10px;
-      margin: 5px 0;
-      background: #f0f0f0;
-      border-radius: 5px;
+    .input-container {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
     }
-    li.done {
-      text-decoration: line-through;
-      opacity: 0.6;
+    #taskInput {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #e1e5f2;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
     }
-    .delete-btn {
-      background: #e74c3c;
+    #taskInput:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .add-btn {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 3px;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .add-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    #taskList {
+      list-style: none;
+    }
+    #taskList li {
+      background: white;
+      border: 1px solid #e1e5f2;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+    #taskList li:hover {
+      border-color: #667eea;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+    }
+    #taskList li.done {
+      opacity: 0.6;
+      text-decoration: line-through;
+      background: #f8f9fa;
+    }
+    .task-text {
+      flex: 1;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .delete-btn {
+      background: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .delete-btn:hover {
+      background: #ff3742;
+    }
+    .privacy-footer {
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 12px; }
+      .input-container { flex-direction: column; }
+      .add-btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <h1>To-Do List</h1>
-  <div id="todoApp">
-    <input type="text" id="taskInput" placeholder="Enter a new task..." />
-    <button onclick="addTask()">Add Task</button>
-    <ul id="taskList"></ul>
+  <div class="container">
+    <header>
+      <h1>✓ To-Do List</h1>
+      <a href="/" class="back-link">← Back to Home</a>
+    </header>
+
+    <!-- Introduction Section -->
+    <div class="content-section">
+      <h2>🎯 Introduction</h2>
+      <p><strong>Perfect for students, professionals, and anyone who wants to stay organized.</strong> This simple yet powerful to-do list helps you track tasks, set priorities, and boost productivity. Built with privacy in mind—all your tasks are stored locally in your browser, with no accounts, no tracking, and no data collection.</p>
+      <p>Whether you're managing daily chores, work projects, or study schedules, this tool provides a clean, distraction-free environment to keep you focused and productive.</p>
+    </div>
+
+    <!-- How to Use Section -->
+    <div class="content-section">
+      <h2>🚀 How to Use</h2>
+      <p><strong>Step-by-step guide:</strong></p>
+      <ul>
+        <li><strong>Add Tasks:</strong> Type your task in the input field and click "Add Task" or press Enter</li>
+        <li><strong>Mark Complete:</strong> Click on any task text to mark it as done (adds strikethrough)</li>
+        <li><strong>Delete Tasks:</strong> Click the red "Delete" button to remove tasks permanently</li>
+        <li><strong>Auto-Save:</strong> Your tasks are automatically saved to browser storage as you work</li>
+        <li><strong>Persistent Storage:</strong> Tasks remain available when you return to the page</li>
+      </ul>
+    </div>
+
+    <!-- Features Section -->
+    <div class="content-section">
+      <h2>⭐ Features</h2>
+      <ul>
+        <li><strong>Instant Access:</strong> No registration or login required</li>
+        <li><strong>Local Storage:</strong> Tasks saved directly to your browser</li>
+        <li><strong>One-Click Actions:</strong> Easy task completion and deletion</li>
+        <li><strong>Clean Interface:</strong> Distraction-free design for better focus</li>
+        <li><strong>Mobile Responsive:</strong> Works perfectly on all devices</li>
+        <li><strong>Keyboard Shortcuts:</strong> Press Enter to quickly add tasks</li>
+        <li><strong>Privacy-First:</strong> No data uploaded to servers</li>
+        <li><strong>Offline Capable:</strong> Works without internet after first load</li>
+      </ul>
+    </div>
+
+    <!-- Use Case Example -->
+    <div class="content-section">
+      <h2>💡 Use Case Example</h2>
+      <p><strong>Scenario:</strong> You're a student preparing for final exams and need to organize your study tasks across multiple subjects.</p>
+      <div class="example-tasks">
+        <div>✓ Read Chapter 12 - Biology</div>
+        <div>✓ Complete Math practice problems 1-20</div>
+        <div>Review History notes - Renaissance period</div>
+        <div>Write English essay outline</div>
+        <div>Group study session - Chemistry lab</div>
+        <div>Submit project proposal - Computer Science</div>
+      </div>
+      <p>You can quickly add all your tasks, check them off as you complete them, and maintain a clear view of what still needs to be done. The visual feedback helps you stay motivated and track your progress.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="content-section">
+      <h2>❓ FAQ</h2>
+      <p><strong>Q: How many tasks can I add?</strong><br>
+      A: There's no set limit, but browser storage is finite. The app can handle hundreds of tasks without issues.</p>
+      
+      <p><strong>Q: Will my tasks be saved if I close the browser?</strong><br>
+      A: Yes! Tasks are stored in your browser's local storage and persist between sessions.</p>
+      
+      <p><strong>Q: Can I access my tasks from different devices?</strong><br>
+      A: Tasks are stored locally per browser. Each device/browser will have its own separate task list.</p>
+      
+      <p><strong>Q: What happens if I clear my browser data?</strong><br>
+      A: Clearing browser data will delete your saved tasks. Consider exporting important tasks before clearing data.</p>
+    </div>
+
+    <!-- Main To-Do App -->
+    <div id="todoApp">
+      <div class="input-container">
+        <input type="text" id="taskInput" placeholder="Enter a new task..." />
+        <button class="add-btn" onclick="addTask()">Add Task</button>
+      </div>
+      <ul id="taskList"></ul>
+    </div>
+
+    <!-- Privacy Footer -->
+    <div class="privacy-footer">
+      🔒 <strong>Privacy Notice:</strong> This to-do list operates entirely in your browser. No tasks are uploaded to servers. No cookies, no tracking, no data collection. Your privacy and productivity data remain completely private.
+    </div>
   </div>
+
   <script>
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
     function saveTasks() {
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
+    
     function renderTasks() {
       const taskList = document.getElementById('taskList');
       taskList.innerHTML = '';
+      
       tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.className = task.done ? 'done' : '';
         li.innerHTML = `
-          <span onclick="toggleTask(${index})" style="cursor:pointer;flex:1;">${task.text}</span>
+          <span class="task-text" onclick="toggleTask(${index})">${task.text}</span>
           <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
         `;
         taskList.appendChild(li);
       });
     }
+    
     function addTask() {
       const input = document.getElementById('taskInput');
       const text = input.value.trim();
       if (!text) return alert('Please enter a task');
+      
       tasks.push({ text, done: false });
       saveTasks();
       renderTasks();
       input.value = '';
     }
+    
     function deleteTask(index) {
       tasks.splice(index, 1);
       saveTasks();
       renderTasks();
     }
+    
     function toggleTask(index) {
       tasks[index].done = !tasks[index].done;
       saveTasks();
       renderTasks();
     }
+    
     document.getElementById('taskInput').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') addTask();
     });
+    
     renderTasks();
   </script>
 </body>
