@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started Guide - PK Web Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .tool-section {
+            background: #f5f7fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box strong {
+            color: #2e7d32;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: scale(1.05);
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Getting Started with PK Web Tools</h1>
+            <p class="subtitle">Your comprehensive guide to mastering privacy-first productivity</p>
+        </header>
+        
+        <section>
+            <h2>👋 Welcome!</h2>
+            <p>Welcome to PK Web Tools, your complete suite of privacy-focused productivity applications. This guide will help you get started with each tool and show you how to maximize your productivity while maintaining complete control over your data.</p>
+            
+            <p>Unlike traditional web applications that store your data on remote servers, every tool in the PK Web Tools suite operates entirely within your browser. This means your documents, notes, and personal information never leave your device, ensuring absolute privacy and security.</p>
+        </section>
+        
+        <section>
+            <h2>🛠️ Overview of Available Tools</h2>
+            
+            <div class="tool-section">
+                <h3>📄 PDF Editor</h3>
+                <p><strong>Purpose:</strong> Merge, split, and manipulate PDF files directly in your browser without uploading to any server.</p>
+                <p><strong>Best for:</strong> Combining multiple PDF documents, extracting specific pages, or editing PDF metadata.</p>
+                <p><strong>Quick start:</strong> Simply drag and drop your PDF files into the upload area, arrange them in your preferred order, and click "Merge PDFs." Your combined document will be ready for download instantly.</p>
+            </div>
+            
+            <div class="tool-section">
+                <h3>📝 Scratchpad</h3>
+                <p><strong>Purpose:</strong> A quick note-taking and code editing tool with syntax highlighting and auto-save functionality.</p>
+                <p><strong>Best for:</strong> Jotting down quick notes, drafting content, or testing code snippets in Python, JavaScript, and other languages.</p>
+                <p><strong>Quick start:</strong> Open the scratchpad and start typing. Your work is automatically saved to your browser's local storage every few seconds, so you'll never lose your progress.</p>
+            </div>
+            
+            <div class="tool-section">
+                <h3>📅 Project Planner</h3>
+                <p><strong>Purpose:</strong> Organize multiple projects with milestones, deadlines, and progress tracking.</p>
+                <p><strong>Best for:</strong> Managing complex projects, tracking deliverables, and visualizing project timelines.</p>
+                <p><strong>Quick start:</strong> Create a new project by entering a project name, then add milestones with specific dates and descriptions. Track your progress by marking milestones as complete.</p>
+            </div>
+            
+            <div class="tool-section">
+                <h3>✅ To-Do List</h3>
+                <p><strong>Purpose:</strong> Manage daily tasks with priority levels and completion tracking.</p>
+                <p><strong>Best for:</strong> Daily task management, grocery lists, and personal reminders.</p>
+                <p><strong>Quick start:</strong> Add tasks by typing in the input field and pressing Enter. Set priorities using the color-coded system, and check off tasks as you complete them.</p>
+            </div>
+            
+            <div class="tool-section">
+                <h3>📚 PYQs (Previous Year Questions)</h3>
+                <p><strong>Purpose:</strong> Access and organize previous year exam questions for effective study preparation.</p>
+                <p><strong>Best for:</strong> Students preparing for exams who want to practice with past questions.</p>
+                <p><strong>Quick start:</strong> Browse questions by subject or year. Use the search functionality to find specific topics or question types.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>✨ Key Features Across All Tools</h2>
+            <ul>
+                <li><strong>🔒 Complete Privacy:</strong> All processing happens locally in your browser. No data is ever transmitted to external servers.</li>
+                <li><strong>💾 Auto-Save:</strong> Most tools automatically save your work to your browser's local storage.</li>
+                <li><strong>🌐 Offline Capable:</strong> Once loaded, many tools work without an internet connection.</li>
+                <li><strong>📱 Mobile Responsive:</strong> All tools are optimized for use on smartphones and tablets.</li>
+                <li><strong>⚡ Lightning Fast:</strong> No server delays mean instant responsiveness.</li>
+                <li><strong>🆓 Completely Free:</strong> No subscriptions, no hidden fees, no premium tiers.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>💡 Pro Tips for Maximum Productivity</h2>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #1: Bookmark Your Favorites</strong>
+                <p>Add your most-used tools to your browser bookmarks for instant access. Consider creating a dedicated bookmark folder for all PK Web Tools.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #2: Regular Backups</strong>
+                <p>While tools use local storage, browser data can be cleared accidentally. For important data, export or download your work periodically. The PDF Editor automatically creates downloadable files, and you should copy important notes from the Scratchpad to your device.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #3: Use Multiple Windows</strong>
+                <p>Open different tools in separate browser windows or tabs to create a custom workspace. For example, keep your To-Do List open alongside the Scratchpad while working.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>📌 Tip #4: Clear Cache Carefully</strong>
+                <p>Be cautious when clearing your browser's cache or cookies. While our tools prioritize privacy, they do use local storage to save your work. Clearing this can result in data loss for unsaved items.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <h3>Is my data really private?</h3>
+            <p>Absolutely. Every tool processes data entirely within your browser using client-side JavaScript. No information is transmitted to our servers or any third party. You can verify this by checking your browser's network activity while using the tools.</p>
+            
+            <h3>Do I need to create an account?</h3>
+            <p>No! We deliberately avoid user accounts to maximize privacy. You can use any tool immediately without signing up, logging in, or providing any personal information.</p>
+            
+            <h3>Will my work be saved if I close the browser?</h3>
+            <p>Most tools (Scratchpad, Project Planner, To-Do List) use local storage to persist data between sessions. However, the PDF Editor operates on files you provide and doesn't store them permanently. Always download your merged PDFs before closing the page.</p>
+            
+            <h3>Can I use these tools offline?</h3>
+            <p>Once a tool page is loaded, most functionality works offline. The PDF Editor, Scratchpad, Project Planner, and To-Do List all operate without requiring an internet connection after the initial page load.</p>
+            
+            <h3>Are there any file size limits?</h3>
+            <p>The only limits are those imposed by your browser and device hardware. The PDF Editor can handle multiple large files, but processing very large documents may take longer and consume more memory.</p>
+        </section>
+        
+        <section>
+            <h2>🚀 Next Steps</h2>
+            <p>Now that you're familiar with the basics, we recommend:</p>
+            <ol>
+                <li>Exploring each tool to understand its unique features</li>
+                <li>Reading our <a href="/tutorial-pdf-mastery.html">PDF Editor Mastery</a> guide for advanced PDF manipulation techniques</li>
+                <li>Checking out the <a href="/tutorial-productivity-tips.html">Productivity Power Tips</a> to optimize your workflow</li>
+                <li>Bookmarking your most frequently used tools for quick access</li>
+            </ol>
+        </section>
+        
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
