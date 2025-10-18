@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐍 Python Scratchpad - Code Editor | PK Web Tools</title>
   <style>
     html, body { margin: 0; height: 100%; background: #282c34; color: white; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; display: flex; flex-direction: column; }
@@ -29,14 +29,12 @@
     <h1>🐍 Python Scratchpad</h1>
     <a href="/">← Back to Home</a>
   </header>
-
   <!-- Introduction Section -->
   <div class="content-sections">
     <h2>📝 Introduction</h2>
     <p><strong>Perfect for Python developers, students, and anyone learning programming.</strong> This browser-based Python scratchpad provides a clean, distraction-free environment for writing and testing Python code snippets. Designed with privacy in mind—all your code stays in your browser's local storage, with no server uploads or tracking.</p>
     <p>Whether you're prototyping algorithms, testing code snippets, or learning Python syntax, this tool provides instant access to a code editor wherever you have a web browser.</p>
   </div>
-
   <!-- How to Use Section -->
   <div class="content-sections">
     <h2>🚀 How to Use</h2>
@@ -49,7 +47,6 @@
       <li><strong>Syntax Highlighting:</strong> Enjoy Python syntax highlighting for better code readability</li>
     </ul>
   </div>
-
   <!-- Features Section -->
   <div class="content-sections">
     <h2>⭐ Features</h2>
@@ -64,7 +61,6 @@
       <li><strong>Line Numbers:</strong> Easy code navigation and debugging</li>
     </ul>
   </div>
-
   <!-- Use Case Example -->
   <div class="content-sections">
     <h2>💡 Use Case Example</h2>
@@ -72,67 +68,52 @@
     <div class="example-code"># Quick list operations testing
 my_list = [1, 2, 3, 4, 5]
 print("Original:", my_list)
-
 # Testing different operations
 my_list.append(6)
 print("After append:", my_list)
-
 my_list.insert(0, 0)
 print("After insert:", my_list)
-
 # List comprehension
 squares = [x**2 for x in my_list]
 print("Squares:", squares)</div>
     <p>You can write, test, and refine your code here, then copy it to your main development environment when you're satisfied with the logic.</p>
   </div>
-
   <!-- FAQ Section -->
   <div class="content-sections">
     <h2>❓ FAQ</h2>
     <p><strong>Q: Can I run Python code directly in this editor?</strong><br>
     A: This is a code editor, not a Python interpreter. Write your code here, then copy and run it in your local Python environment or online Python runner.</p>
-    
+    <br>
     <p><strong>Q: How long is my code stored?</strong><br>
     A: Your code is stored in your browser's local storage indefinitely, until you clear your browser data or manually delete it.</p>
-    
+    <br>
     <p><strong>Q: Can I save multiple files?</strong><br>
     A: Currently, this tool stores one scratchpad per browser. For multiple files, consider bookmarking different instances or using local development tools.</p>
-    
+    <br>
     <p><strong>Q: Does this work offline?</strong><br>
     A: Yes! After the first load, the editor works completely offline since everything runs in your browser.</p>
   </div>
-
   <div class="intro">
     <strong>About this tool:</strong> Lightweight Python code editor with auto-save to your browser. No servers, no tracking.
-    <br />
+    <br><br>
     <strong>Usage tips:</strong> Start typing below. Your code auto-saves. Use Ctrl/Cmd+F to find text. Copy code to run in your local Python.
   </div>
-  <div id="editor"></div>
+  <div id="editor" style="height: 350px; width: 100%; border: 1px solid #ccc;"></div>
   <div class="tips">Tip: Clear your browser data carefully — local storage holds your scratchpad content.</div>
-
   <!-- Privacy Footer -->
   <div class="privacy-footer">
     🔒 <strong>Privacy Notice:</strong> This tool operates entirely in your browser. No code is uploaded to servers. No cookies, no tracking, no data collection. Your privacy is protected.
   </div>
-
-  <!-- Ace FULL BUILD - all modes/themes included -->
-  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/ace.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/mode-python.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.32.3/src-noconflict/theme-vibrant_ink.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-t/1F+E4XUVkKZyYwzOAbAFwdyH2/rtUlKJW/m63WKZoEBlF3Qw3cVJgfdpbcLzGIDR3kJdW9Oboy9/4uPb926A==" crossorigin="anonymous"></script>
   <script>
-    const STORAGE_KEY = "pythonScratchpadCode";
-    const editor = ace.edit("editor");
-    editor.setTheme("ace/theme/vibrant_ink");
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/python");
-    editor.setOptions({ fontSize: "12px", showPrintMargin: false, wrap: false, showInvisibles: true });
-    const savedCode = localStorage.getItem(STORAGE_KEY);
-    if (savedCode) {
-      editor.setValue(savedCode, -1);
-    } else {
-      editor.setValue("# Write your Python code here", -1);
-    }
-    editor.session.on('change', () => {
-      localStorage.setItem(STORAGE_KEY, editor.getValue());
+    editor.setShowPrintMargin(false);
+    editor.setFontSize(15);
+    editor.setValue(localStorage.getItem("scratchpad-code") || "# Type your Python code here\nprint('Hello World')");
+    editor.on("change", function() {
+        localStorage.setItem("scratchpad-code", editor.getValue());
     });
   </script>
 </body>
