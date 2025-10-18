@@ -3,18 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Web Tools - A collection of productivity tools including PDF Editor, Scratchpad, Planner, To-Do List, and Previous Year Questions (PYQs)">
-    <meta name="keywords" content="PDF editor, scratchpad, planner, to-do list, PYQs, previous year questions, productivity tools, web tools">
-    <meta name="author" content="pk-628996">
-    <meta property="og:title" content="PK Web Tools - Productivity Suite">
-    <meta property="og:description" content="Free online tools for PDF editing, note-taking, planning, task management, and PYQs">
-    <meta property="og:type" content="website">
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618521591194407"
-     crossorigin="anonymous"></script>
-    
-    <title>PK Web Tools - Your Personal Productivity Suite</title>
+    <title>PK Web Tools - Privacy-First Productivity Suite</title>
     <style>
         * {
             margin: 0;
@@ -24,117 +13,59 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            color: #333;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            flex: 1;
-        }
-        
-        /* Navigation Styles */
-        nav {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        nav li {
-            display: inline;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
         }
         
         header {
             text-align: center;
-            padding: 60px 20px 40px;
             color: white;
+            padding: 40px 20px;
         }
         
         header h1 {
             font-size: 3em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1s ease;
         }
         
         header p {
             font-size: 1.3em;
             opacity: 0.95;
-            margin-bottom: 10px;
-        }
-        
-        .welcome-message {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 800px;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
         }
         
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            padding: 20px;
+            gap: 25px;
+            margin: 30px 0;
         }
         
         .tool-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
             text-decoration: none;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
         .tool-icon {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 15px;
         }
         
@@ -146,63 +77,102 @@
         
         .tool-card p {
             color: #666;
-            line-height: 1.6;
             margin-bottom: 15px;
         }
         
         .tool-button {
+            display: inline-block;
+            padding: 10px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px 25px;
             border-radius: 25px;
-            text-decoration: none;
-            display: inline-block;
+            font-weight: bold;
             margin-top: 10px;
-            transition: opacity 0.3s ease;
-            font-weight: 600;
         }
         
-        .tool-button:hover {
-            opacity: 0.9;
-        }
-        
-        .about-section {
-            background: rgba(255,255,255,0.95);
+        .about-section, .resources-section {
+            background: white;
             border-radius: 15px;
             padding: 40px;
-            margin: 40px auto;
-            max-width: 900px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .about-section h2 {
+        .about-section h2, .resources-section h2 {
             color: #667eea;
-            margin-bottom: 20px;
             font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .about-section p {
+        .about-section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .about-section p, .resources-section p {
+            margin-bottom: 20px;
             line-height: 1.8;
             color: #555;
-            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .about-section ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+        
+        .about-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .resource-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .resource-card h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .resource-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin: 0;
         }
         
         footer {
             text-align: center;
-            padding: 30px;
             color: white;
-            opacity: 0.9;
+            padding: 30px 20px;
+            margin-top: 40px;
         }
         
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
         }
         
         @media (max-width: 768px) {
@@ -210,113 +180,117 @@
                 font-size: 2em;
             }
             
-            header p {
-                font-size: 1.1em;
-            }
-            
             .tools-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            nav ul {
-                gap: 15px;
-            }
-            
-            nav a {
-                font-size: 1em;
-                padding: 6px 12px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/pdf_editor">PDF Editor</a></li>
-            <li><a href="/scratchpad">Scratchpad</a></li>
-            <li><a href="/planner">Planner</a></li>
-            <li><a href="/to-dolist">To-Do List</a></li>
-            <li><a href="/pyqs">PYQs</a></li>
-        </ul>
-    </nav>
-    
     <div class="container">
         <header>
             <h1>🚀 PK Web Tools</h1>
-            <p>Your Personal Productivity Suite</p>
+            <p>Your Privacy-First Productivity Suite</p>
         </header>
         
-        <div class="welcome-message">
-            <h2 style="margin-bottom: 15px;">👋 Welcome!</h2>
-            <p>Discover a collection of powerful, free online tools designed to boost your productivity. All tools work directly in your browser with no account required.</p>
-        </div>
-        
         <div class="tools-grid">
-            <a class="tool-card" href="/pdf_editor">
+            <a class="tool-card" href="/pdf_editor.html">
                 <div>
                     <div class="tool-icon">📄</div>
                     <h3>PDF Editor</h3>
-                    <p>Merge multiple PDFs, add metadata, and manage your documents - all offline and secure.</p>
+                    <p>Edit, merge, split, and manipulate PDF files directly in your browser. No uploads, complete privacy.</p>
                 </div>
-                <span class="tool-button">Launch PDF Editor</span>
+                <span class="tool-button">Open Editor</span>
             </a>
             
-            <a class="tool-card" href="/scratchpad">
+            <a class="tool-card" href="/scratchpad.html">
                 <div>
-                    <div class="tool-icon">💻</div>
+                    <div class="tool-icon">📝</div>
                     <h3>Scratchpad</h3>
-                    <p>Write and execute Python code directly in your browser. Perfect for quick experiments.</p>
+                    <p>Quick notes and drafts with auto-save. Your personal notepad that never leaves your device.</p>
                 </div>
-                <span class="tool-button">Open Scratchpad</span>
+                <span class="tool-button">Start Writing</span>
             </a>
             
-            <a class="tool-card" href="/planner">
+            <a class="tool-card" href="/planner.html">
                 <div>
                     <div class="tool-icon">📅</div>
                     <h3>Project Planner</h3>
-                    <p>Organize your projects, set milestones, and track progress efficiently.</p>
+                    <p>Organize your projects, set milestones, and track progress efficiently with visual timeline.</p>
                 </div>
                 <span class="tool-button">Start Planning</span>
             </a>
             
-            <a class="tool-card" href="/to-dolist">
+            <a class="tool-card" href="/to-dolist.html">
                 <div>
                     <div class="tool-icon">✅</div>
                     <h3>To-Do List</h3>
-                    <p>Manage your tasks and stay organized with our intuitive to-do list manager.</p>
+                    <p>Manage your daily tasks and stay organized with our intuitive task manager and priority system.</p>
                 </div>
                 <span class="tool-button">Manage Tasks</span>
             </a>
             
-            <a class="tool-card" href="/pyqs">
+            <a class="tool-card" href="/pyqs.html">
                 <div>
                     <div class="tool-icon">📚</div>
                     <h3>PYQs</h3>
-                    <p>Access Previous Year Questions for exam preparation and study materials.</p>
+                    <p>Access Previous Year Questions for exam preparation and study materials organized by subject.</p>
                 </div>
                 <span class="tool-button">View PYQs</span>
             </a>
         </div>
         
         <div class="about-section" id="about">
-            <h2>📖 About This Suite</h2>
-            <p>This is a collection of web-based productivity tools built with privacy and usability in mind. All tools run entirely in your browser, meaning your data stays on your device and is never uploaded to any server.</p>
-            <h3>Key Features:</h3>
-            <ul style="margin-left: 20px; line-height: 2;">
+            <h2>📖 About PK Web Tools</h2>
+            
+            <h3>Our Mission</h3>
+            <p>PK Web Tools was created with a singular vision: to provide powerful, professional-grade productivity tools that respect your privacy and data sovereignty. In an era where most online services harvest user data for profit, we stand firmly against this practice. Our mission is to demonstrate that exceptional web applications can be built without compromising user privacy. Every tool in our suite runs entirely within your browser, utilizing modern web technologies to deliver desktop-class functionality without requiring server-side processing or data transmission. We believe that your documents, notes, and personal information should remain yours alone.</p>
+            
+            <h3>Who We Serve</h3>
+            <p>Our tools are designed for students, professionals, freelancers, and anyone who values both productivity and privacy. Whether you're a student managing assignments and studying from previous year questions, a developer organizing project milestones, a writer drafting content in our scratchpad, or a professional working with sensitive PDF documents, PK Web Tools provides the functionality you need. We've carefully crafted each tool to be intuitive enough for beginners while offering the depth that power users demand. Our mobile-responsive design ensures you can be productive whether you're at your desk or on the go, and our lightweight architecture means these tools work even on older devices or slow connections.</p>
+            
+            <h3>Privacy Philosophy</h3>
+            <p>Privacy isn't just a feature—it's the foundation of everything we build. Unlike traditional web applications that process your data on remote servers, every tool in the PK Web Tools suite operates using client-side JavaScript, meaning all processing happens locally in your browser. Your files never leave your device, and we don't use cookies, analytics trackers, or any technology that monitors your behavior. We don't collect emails, we don't require accounts, and we certainly never sell data because we don't have any data to sell. This is privacy by design, not privacy as an afterthought. Our open-source codebase means anyone can audit our privacy claims, and our commitment to remaining ad-free on tools with substantial content ensures that user experience is never compromised for monetization.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
                 <li>🔒 100% Privacy - Your data never leaves your device</li>
-                <li>⚡ Fast and Lightweight - No heavy frameworks</li>
-                <li>📱 Mobile Friendly - Works on all devices</li>
-               
-                <li>📚 PYQs - Previous Year Questions for exam prep</li>
+                <li>⚡ Fast and Lightweight - No heavy frameworks or bloat</li>
+                <li>📱 Mobile Friendly - Responsive design works on all devices</li>
+                <li>💾 Auto-Save - Your work is automatically saved locally</li>
+                <li>🌐 Works Offline - Most tools function without internet</li>
+                <li>🎨 Clean Interface - Intuitive design focused on usability</li>
+                <li>🆓 Completely Free - No subscriptions, no hidden costs</li>
+                <li>📖 Open Source - Transparent code available for review</li>
             </ul>
+        </div>
+        
+        <div class="resources-section" id="resources">
+            <h2>📚 Resources and Tutorials</h2>
+            <p>Learn how to make the most of our tools with our comprehensive guides and tutorials. Whether you're new to the suite or looking to unlock advanced features, these resources will help you maximize your productivity.</p>
+            
+            <div class="resource-links">
+                <a class="resource-card" href="/tutorial-getting-started.html">
+                    <h3>🎯 Getting Started Guide</h3>
+                    <p>New to PK Web Tools? This comprehensive guide walks you through each tool, explaining core features and best practices to help you become productive immediately.</p>
+                </a>
+                
+                <a class="resource-card" href="/tutorial-pdf-mastery.html">
+                    <h3>📄 PDF Editor Mastery</h3>
+                    <p>Unlock the full potential of our PDF Editor. Learn advanced techniques for document manipulation, merging multiple files, extracting pages, and working with forms—all while maintaining complete privacy.</p>
+                </a>
+                
+                <a class="resource-card" href="/tutorial-productivity-tips.html">
+                    <h3>⚡ Productivity Power Tips</h3>
+                    <p>Discover workflow optimization strategies using our suite. This tutorial covers keyboard shortcuts, integration techniques, and productivity hacks to help you work smarter and faster.</p>
+                </a>
+            </div>
         </div>
     </div>
     
     <footer>
-        <p>© 2025 PK Web Tools | Made with ❤️ by pk-628996</p>
-        <p style="margin-top: 10px; font-size: 0.9em;">All tools are open source and privacy-focused</p>
+        <p>© 2025 PK Web Tools | Made with ❤️ for privacy-conscious users</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">All tools are open source and privacy-focused. Your data stays on your device.</p>
     </footer>
 </body>
 </html>
