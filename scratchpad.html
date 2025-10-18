@@ -38,7 +38,7 @@
   <!-- How to Use Section -->
   <div class="content-sections">
     <h2>🚀 How to Use</h2>
-    <p><strong>Step-by-step guide:</strong></p>
+    <p>Step-by-step guide:</p>
     <ul>
       <li><strong>Start Coding:</strong> Click in the editor below and start typing your Python code</li>
       <li><strong>Auto-Save:</strong> Your code automatically saves to browser storage as you type</li>
@@ -49,71 +49,71 @@
   </div>
   <!-- Features Section -->
   <div class="content-sections">
-    <h2>⭐ Features</h2>
+    <h2>✨ Key Features</h2>
     <ul>
-      <li><strong>Instant Access:</strong> No login or registration required</li>
-      <li><strong>Auto-Save:</strong> Never lose your work with automatic browser storage</li>
-      <li><strong>Python Syntax Highlighting:</strong> Enhanced code readability</li>
-      <li><strong>Find & Replace:</strong> Built-in search functionality</li>
-      <li><strong>Privacy-First:</strong> No server uploads, no tracking, no data collection</li>
-      <li><strong>Mobile Friendly:</strong> Works on phones and tablets</li>
-      <li><strong>Offline Capable:</strong> Use without internet after first load</li>
-      <li><strong>Line Numbers:</strong> Easy code navigation and debugging</li>
+      <li><strong>Privacy-First:</strong> All code stored locally in your browser—no server uploads</li>
+      <li><strong>Clean Interface:</strong> Minimalist design keeps you focused on coding</li>
+      <li><strong>Auto-Save:</strong> Never lose your work—saves automatically as you type</li>
+      <li><strong>Syntax Highlighting:</strong> Python-specific code coloring for easier reading</li>
+      <li><strong>No Sign-Up:</strong> Start coding immediately without account creation</li>
+      <li><strong>Offline-Ready:</strong> Works without internet after first load</li>
     </ul>
   </div>
-  <!-- Use Case Example -->
+  <!-- Example Code Section -->
   <div class="content-sections">
-    <h2>💡 Use Case Example</h2>
-    <p><strong>Scenario:</strong> You're learning Python data structures and want to quickly test different list manipulation techniques.</p>
-    <div class="example-code"># Quick list operations testing
-my_list = [1, 2, 3, 4, 5]
-print("Original:", my_list)
-# Testing different operations
-my_list.append(6)
-print("After append:", my_list)
-my_list.insert(0, 0)
-print("After insert:", my_list)
-# List comprehension
-squares = [x**2 for x in my_list]
-print("Squares:", squares)</div>
-    <p>You can write, test, and refine your code here, then copy it to your main development environment when you're satisfied with the logic.</p>
+    <h2>💡 Example Python Code</h2>
+    <p>Try these snippets in the editor:</p>
+    <div class="example-code">
+      # Basic function<br>
+      def greet(name):<br>
+      &nbsp;&nbsp;return f"Hello, {name}!"<br>
+      <br>
+      # List comprehension<br>
+      numbers = [x**2 for x in range(10)]<br>
+      <br>
+      # Dictionary example<br>
+      user = {"name": "Alice", "age": 30}
+    </div>
   </div>
-  <!-- FAQ Section -->
-  <div class="content-sections">
-    <h2>❓ FAQ</h2>
-    <p><strong>Q: Can I run Python code directly in this editor?</strong><br>
-    A: This is a code editor, not a Python interpreter. Write your code here, then copy and run it in your local Python environment or online Python runner.</p>
-    <br>
-    <p><strong>Q: How long is my code stored?</strong><br>
-    A: Your code is stored in your browser's local storage indefinitely, until you clear your browser data or manually delete it.</p>
-    <br>
-    <p><strong>Q: Can I save multiple files?</strong><br>
-    A: Currently, this tool stores one scratchpad per browser. For multiple files, consider bookmarking different instances or using local development tools.</p>
-    <br>
-    <p><strong>Q: Does this work offline?</strong><br>
-    A: Yes! After the first load, the editor works completely offline since everything runs in your browser.</p>
+  <!-- Code Editor Area -->
+  <div id="editor"># Type your Python code here...
+
+# Example:
+def hello_world():
+    print("Hello, World!")
+
+hello_world()
+</div>
+  <!-- Keyboard Shortcuts Tip -->
+  <div class="tips">
+    <strong>💡 Tip:</strong> Use Ctrl+F (Cmd+F) to search within your code | Ctrl+Z (Cmd+Z) to undo changes
   </div>
-  <div class="intro">
-    <strong>About this tool:</strong> Lightweight Python code editor with auto-save to your browser. No servers, no tracking.
-    <br><br>
-    <strong>Usage tips:</strong> Start typing below. Your code auto-saves. Use Ctrl/Cmd+F to find text. Copy code to run in your local Python.
-  </div>
-  <div id="editor" style="height: 350px; width: 100%; border: 1px solid #ccc;"></div>
-  <div class="tips">Tip: Clear your browser data carefully — local storage holds your scratchpad content.</div>
   <!-- Privacy Footer -->
   <div class="privacy-footer">
-    🔒 <strong>Privacy Notice:</strong> This tool operates entirely in your browser. No code is uploaded to servers. No cookies, no tracking, no data collection. Your privacy is protected.
+    <strong>🔒 Your Privacy Matters:</strong> This scratchpad stores code locally in your browser using localStorage. No data is sent to any server. Clearing browser data will remove saved code.
   </div>
+  <!-- Ace Editor CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-t/1F+E4XUVkKZyYwzOAbAFwdyH2/rtUlKJW/m63WKZoEBlF3Qw3cVJgfdpbcLzGIDR3kJdW9Oboy9/4uPb926A==" crossorigin="anonymous"></script>
+  <!-- Initialize Editor -->
   <script>
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/textmate");
+    editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/python");
-    editor.setShowPrintMargin(false);
-    editor.setFontSize(15);
-    editor.setValue(localStorage.getItem("scratchpad-code") || "# Type your Python code here\nprint('Hello World')");
-    editor.on("change", function() {
-        localStorage.setItem("scratchpad-code", editor.getValue());
+    editor.setOptions({
+      fontSize: "14px",
+      showPrintMargin: false,
+      highlightActiveLine: true,
+      enableBasicAutocompletion: true,
+      enableLiveAutocompletion: false
+    });
+    // Load saved code from localStorage
+    const savedCode = localStorage.getItem('pythonScratchpadCode');
+    if (savedCode !== null) {
+      editor.setValue(savedCode, -1);
+    }
+    // Auto-save on change
+    editor.session.on('change', function() {
+      localStorage.setItem('pythonScratchpadCode', editor.getValue());
     });
   </script>
 </body>
