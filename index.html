@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PK Web Tools - Privacy-First Productivity Suite</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  PK Web Tools - Privacy-First Productivity Suite
+  <br>    * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
     .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
     header { text-align: center; color: white; padding: 40px 20px; }
     header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
     header p { font-size: 1.1em; opacity: 0.95; }
-
     .section { background: #fff; border-radius: 16px; padding: 28px; margin: 22px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
     .section h2 { color: #4a5bd4; margin-bottom: 14px; font-size: 1.8em; display: flex; align-items: center; gap: 10px; }
     .section p.lead { color: #555; margin-bottom: 14px; }
-
     .nptel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
     .course { border: 1px solid #e6e8ff; border-left: 5px solid #667eea; border-radius: 10px; padding: 14px; background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 60%); }
     .course h3 { font-size: 1.05em; color: #2f3fb3; margin-bottom: 6px; }
     .course .meta { font-size: 0.92em; color: #444; margin: 2px 0; }
     .course a { color: #0b57d0; font-weight: 600; text-decoration: none; }
-
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
     .tool-card { background: white; border-radius: 15px; padding: 30px; text-decoration: none; color: #333; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: block; }
     .tool-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
@@ -29,89 +25,75 @@
     .tool-card h3 { font-size: 1.5em; margin-bottom: 10px; color: #667eea; }
     .tool-card p { color: #666; margin-bottom: 15px; }
     .tool-button { display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 25px; font-weight: bold; margin-top: 10px; }
-
     footer { text-align: center; color: white; padding: 30px 20px; margin-top: 40px; }
-  </style>
-</head>
-<body>
-  <div class="container">
+    <div class="container">
     <header>
-      <h1>🚀 PK Web Tools</h1>
-      <p>Your Privacy-First Productivity Suite</p>
+      🚀 PK Web Tools
+      Your Privacy-First Productivity Suite
     </header>
-
     <section class="section" id="nptel-courses">
-      <h2>🎓 Best NPTEL Courses (Curated)</h2>
+      🎓 Best NPTEL Courses (Curated)
       <p class="lead">Handpicked NPTEL courses with direct links, instructors, and institutes for C, C++, Java, Python, JavaScript, SQL, Data Structures, Engineering Physics, Mathematics, Communication Skills, and other B.Tech 1st year essentials.</p>
-
       <h3 style="color:#5b6bf5; margin:10px 0 6px;">Programming Languages</h3>
       <div class="nptel-grid">
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106211" target="_blank" rel="noopener">Programming in C++</a></h3><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106217" target="_blank" rel="noopener">Programming in Modern C++</a></h3><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/101/106101208" target="_blank" rel="noopener">Introduction to Programming in C</a></h3><div class="meta">Instructor: Prof. Satyadev Nandakumar</div><div class="meta">Institute: IIT Kanpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105171" target="_blank" rel="noopener">Programming in Java</a></h3><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106145" target="_blank" rel="noopener">Programming, Data Structures and Algorithms Using Python</a></h3><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: Chennai Mathematical Institute (CMI)</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106220" target="_blank" rel="noopener">Python for Data Science</a></h3><div class="meta">Instructor: Prof. Ragunathan Rengasamy (and team)</div><div class="meta">Institute: IIT Madras</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106093" target="_blank" rel="noopener">JavaScript (Web Development)</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/103/106103061" target="_blank" rel="noopener">Database Management System (SQL)</a></h3><div class="meta">Instructors: Prof. S. Sudarshan, Prof. Arnab Bhattacharya</div><div class="meta">Institute: IIT Bombay / IIT Kanpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106211" rel="noopener" target="_blank">Programming in C++</a><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106217" rel="noopener" target="_blank">Programming in Modern C++</a><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/101/106101208" rel="noopener" target="_blank">Introduction to Programming in C</a><div class="meta">Instructor: Prof. Satyadev Nandakumar</div><div class="meta">Institute: IIT Kanpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/105/106105171" rel="noopener" target="_blank">Programming in Java</a><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106145" rel="noopener" target="_blank">Programming, Data Structures and Algorithms Using Python</a><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: Chennai Mathematical Institute (CMI)</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106220" rel="noopener" target="_blank">Python for Data Science</a><div class="meta">Instructor: Prof. Ragunathan Rengasamy (and team)</div><div class="meta">Institute: IIT Madras</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106093" rel="noopener" target="_blank">JavaScript (Web Development)</a><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/103/106103061" rel="noopener" target="_blank">Database Management System (SQL)</a><div class="meta">Instructors: Prof. S. Sudarshan, Prof. Arnab Bhattacharya</div><div class="meta">Institute: IIT Bombay / IIT Kanpur</div></div>
+        <div class="course"><a href="#" rel="noopener" target="_blank">Advanced Python Programming</a><div class="meta">Instructor: Prof. John Doe</div><div class="meta">Institute: Example Institute</div></div>
       </div>
-
       <h3 style="color:#5b6bf5; margin:16px 0 6px;">Data Structures and Algorithms</h3>
       <div class="nptel-grid">
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/102/106102064" target="_blank" rel="noopener">Data Structures and Algorithms</a></h3><div class="meta">Instructor: Prof. Naveen Garg</div><div class="meta">Institute: IIT Delhi</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105225" target="_blank" rel="noopener">Data Structures and Algorithms Using Java</a></h3><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/104/106104170" target="_blank" rel="noopener">Design and Analysis of Algorithms</a></h3><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: CMI (via NPTEL)</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/102/106102064" rel="noopener" target="_blank">Data Structures and Algorithms</a><div class="meta">Instructor: Prof. Naveen Garg</div><div class="meta">Institute: IIT Delhi</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/105/106105225" rel="noopener" target="_blank">Data Structures and Algorithms Using Java</a><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/104/106104170" rel="noopener" target="_blank">Design and Analysis of Algorithms</a><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: CMI (via NPTEL)</div></div>
       </div>
-
       <h3 style="color:#5b6bf5; margin:16px 0 6px;">B.Tech 1st Year Core</h3>
       <div class="nptel-grid">
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/115/104/115104095" target="_blank" rel="noopener">Engineering Physics I</a></h3><div class="meta">Institute: IIT Guwahati / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/115/101/115101004" target="_blank" rel="noopener">Engineering Physics II</a></h3><div class="meta">Institute: IIT Kanpur / IIT Bombay</div><div class="meta">Instructor: NPTEL Faculty</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/111/104/111104085" target="_blank" rel="noopener">Engineering Mathematics I</a></h3><div class="meta">Instructor: Prof. Inder K. Rana (and others)</div><div class="meta">Institute: IIT Bombay</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/111/104/111104086" target="_blank" rel="noopener">Engineering Mathematics II</a></h3><div class="meta">Institute: IIT Kanpur / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/109/104/109104116" target="_blank" rel="noopener">Communication Skills</a></h3><div class="meta">Instructor: Prof. T. Ravichandran</div><div class="meta">Institute: IIT Kanpur</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/112/103/112103174" target="_blank" rel="noopener">Engineering Mechanics</a></h3><div class="meta">Instructor: Prof. S. Anil Lal</div><div class="meta">Institute: IIT Madras</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/115/104/115104095" rel="noopener" target="_blank">Engineering Physics I</a><div class="meta">Institute: IIT Guwahati / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/115/101/115101004" rel="noopener" target="_blank">Engineering Physics II</a><div class="meta">Institute: IIT Kanpur / IIT Bombay</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/111/104/111104085" rel="noopener" target="_blank">Engineering Mathematics I</a><div class="meta">Instructor: Prof. Inder K. Rana (and others)</div><div class="meta">Institute: IIT Bombay</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/111/104/111104086" rel="noopener" target="_blank">Engineering Mathematics II</a><div class="meta">Institute: IIT Kanpur / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/109/104/109104116" rel="noopener" target="_blank">Communication Skills</a><div class="meta">Instructor: Prof. T. Ravichandran</div><div class="meta">Institute: IIT Kanpur</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/112/103/112103174" rel="noopener" target="_blank">Engineering Mechanics</a><div class="meta">Instructor: Prof. S. Anil Lal</div><div class="meta">Institute: IIT Madras</div></div>
       </div>
-
       <h3 style="color:#5b6bf5; margin:16px 0 6px;">Notable Extras (Highly Recommended)</h3>
       <div class="nptel-grid">
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105214" target="_blank" rel="noopener">Introduction to Machine Learning</a></h3><div class="meta">Instructor: Prof. B. Ravindran</div><div class="meta">Institute: IIT Madras</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106182" target="_blank" rel="noopener">Operating Systems</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
-        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/102/106102012" target="_blank" rel="noopener">Computer Networks</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/105/106105214" rel="noopener" target="_blank">Introduction to Machine Learning</a><div class="meta">Instructor: Prof. B. Ravindran</div><div class="meta">Institute: IIT Madras</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/106/106106182" rel="noopener" target="_blank">Operating Systems</a><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+        <div class="course"><a href="https://nptel.ac.in/courses/106/102/106102012" rel="noopener" target="_blank">Computer Networks</a><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
       </div>
-
       <p class="lead" style="margin-top:12px; font-size:0.9em; color:#666;">Tip: Click a course to view the current run on NPTEL/SWAYAM and enroll when available. Links open in a new tab.</p>
     </section>
-
     <!-- Existing tools -->
     <div class="tools-grid">
-      <a class="tool-card" href="/pdf_editor.html"><div><div class="tool-icon">📄</div><h3>PDF Editor</h3><p>Edit, merge, split, and manipulate PDF files directly in your browser. No uploads, complete privacy.</p></div><span class="tool-button">Open Editor</span></a>
-      <a class="tool-card" href="/scratchpad.html"><div><div class="tool-icon">📝</div><h3>Scratchpad</h3><p>Quick notes and drafts with auto-save. Your personal notepad that never leaves your device.</p></div><span class="tool-button">Start Writing</span></a>
-      <a class="tool-card" href="/planner.html"><div><div class="tool-icon">📅</div><h3>Project Planner</h3><p>Organize your projects, set milestones, and track progress efficiently with visual timeline.</p></div><span class="tool-button">Start Planning</span></a>
-      <a class="tool-card" href="/to-dolist.html"><div><div class="tool-icon">✅</div><h3>To-Do List</h3><p>Manage your daily tasks and stay organized with our intuitive task manager and priority system.</p></div><span class="tool-button">Manage Tasks</span></a>
-      <a class="tool-card" href="/pyqs.html"><div><div class="tool-icon">📚</div><h3>PYQs</h3><p>Access Previous Year Questions for exam preparation and study materials organized by subject.</p></div><span class="tool-button">View PYQs</span></a>
-      <a class="tool-card" href="/nptel-courses.html"><div><div class="tool-icon">🎓</div><h3>NPTEL Courses</h3><p>Curated collection of NPTEL courses with direct links. Easy access to quality educational content.</p></div><span class="tool-button">Browse Courses</span></a>
+      <a class="tool-card" href="/pdf_editor.html"><div><div class="tool-icon">📄</div>PDF EditorEdit, merge, split, and manipulate PDF files directly in your browser. No uploads, complete privacy.</div><span class="tool-button">Open Editor</span></a>
+      <a class="tool-card" href="/scratchpad.html"><div><div class="tool-icon">📝</div>ScratchpadQuick notes and drafts with auto-save. Your personal notepad that never leaves your device.</div><span class="tool-button">Start Writing</span></a>
+      <a class="tool-card" href="/planner.html"><div><div class="tool-icon">📅</div>Project PlannerOrganize your projects, set milestones, and track progress efficiently with visual timeline.</div><span class="tool-button">Start Planning</span></a>
+      <a class="tool-card" href="/to-dolist.html"><div><div class="tool-icon">✅</div>To-Do ListManage your daily tasks and stay organized with our intuitive task manager and priority system.</div><span class="tool-button">Manage Tasks</span></a>
+      <a class="tool-card" href="/pyqs.html"><div><div class="tool-icon">📚</div>PYQsAccess Previous Year Questions for exam preparation and study materials organized by subject.</div><span class="tool-button">View PYQs</span></a>
+      <a class="tool-card" href="/nptel-courses.html"><div><div class="tool-icon">🎓</div>NPTEL CoursesCurated collection of NPTEL courses with direct links. Easy access to quality educational content.</div><span class="tool-button">Browse Courses</span></a>
     </div>
-
     <section class="section" id="about">
-      <h2>📖 About PK Web Tools</h2>
-      <p>PK Web Tools provides professional-grade, privacy-first web tools that run fully in your browser. No data leaves your device.</p>
+      📖 About PK Web Tools
+      PK Web Tools provides professional-grade, privacy-first web tools that run fully in your browser. No data leaves your device.
       <ul style="margin-left:18px; color:#555; line-height:1.9;">
-        <li>🔒 100% Privacy - Your data never leaves your device</li>
-        <li>⚡ Fast and Lightweight - No heavy frameworks or bloat</li>
-        <li>📱 Mobile Friendly - Responsive design works on all devices</li>
-        <li>💾 Auto-Save - Your work is automatically saved locally</li>
-        <li>🌐 Works Offline - Most tools function without internet</li>
-        <li>🎨 Clean Interface - Intuitive design focused on usability</li>
-        <li>🆓 Completely Free - No subscriptions, no hidden costs</li>
-        <li>📖 Open Source - Transparent code available for review</li>
+        🔒 100% Privacy - Your data never leaves your device
+        ⚡ Fast and Lightweight - No heavy frameworks or bloat
+        📱 Mobile Friendly - Responsive design works on all devices
+        💾 Auto-Save - Your work is automatically saved locally
+        🌐 Works Offline - Most tools function without internet
+        🎨 Clean Interface - Intuitive design focused on usability
+        🆓 Completely Free - No subscriptions, no hidden costs
+        📖 Open Source - Transparent code available for review
       </ul>
     </section>
   </div>
-
   <footer>
     © 2025 PK Web Tools | Made with ❤️ for privacy-conscious users
     <p style="margin-top: 10px; font-size: 0.9em;">All tools are open source and privacy-focused. Your data stays on your device.</p>
   </footer>
-</body>
-</html>
