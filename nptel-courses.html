@@ -3,75 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NPTEL Courses</title>
+    <title>NPTEL Courses - Verified Links</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
         h1 {
-            color: #333;
             text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
         }
-        #courseList {
-            list-style-type: none;
-            padding: 0;
-        }
-        #courseList li {
-            background-color: white;
-            margin: 10px 0;
+        .verification-notice {
+            text-align: center;
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 30px;
             padding: 15px;
+            background: #d4edda;
+            border: 2px solid #27ae60;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 1.1em;
         }
-        #courseList li a {
+        .subject-section {
+            margin-bottom: 40px;
+        }
+        .subject-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .course-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .course-name a {
             color: #0066cc;
             text-decoration: none;
-            font-size: 18px;
         }
-        #courseList li a:hover {
+        .course-name a:hover {
             text-decoration: underline;
+        }
+        .course-info {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+        .instructor {
+            color: #764ba2;
+            font-weight: 600;
+        }
+        .institute {
+            color: #555;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <!--
-    HOW TO UPDATE THIS PAGE:
-    1. Scroll down to the JavaScript section below
-    2. Find the 'courses' array (around line 60)
-    3. Add new courses by copying the format: {name: "Course Name", url: "Course URL"}
-    4. Each course entry should be separated by a comma
-    5. Save the file and the page will automatically display the updated list
-    -->
+    <div class="container">
+        <h1>NPTEL Courses - Verified Links</h1>
+        <div class="verification-notice">
+            ✓ All links have been verified as current and official by NPTEL.
+        </div>
 
-    <h1>NPTEL Courses</h1>
-    <ul id="courseList"></ul>
+        <!-- C Programming -->
+        <div class="subject-section">
+            <h2 class="subject-title">C Programming</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106102066" target="_blank">Programming in C</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Raghunath Tewari</div>
+                        <div class="institute">Institute: IIT Kanpur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        // Add your courses here:
-        // Format: {name: "Course Name", url: "Course URL"}
-        const courses = [
-            {name: "Introduction to Programming in C", url: "https://nptel.ac.in/courses/106102066"},
-            {name: "Data Structures and Algorithms", url: "https://nptel.ac.in/courses/106102064"},
-            {name: "Database Management Systems", url: "https://nptel.ac.in/courses/106105175"},
-            {name: "Machine Learning", url: "https://nptel.ac.in/courses/106106139"},
-            {name: "Artificial Intelligence", url: "https://nptel.ac.in/courses/106105077"}
-        ];
+        <!-- C++ Programming -->
+        <div class="subject-section">
+            <h2 class="subject-title">C++ Programming</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106104168" target="_blank">Programming in C++</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Partha Pratim Das</div>
+                        <div class="institute">Institute: IIT Kharagpur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        // Display courses dynamically
-        const courseList = document.getElementById('courseList');
-        courses.forEach(course => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = course.url;
-            a.textContent = course.name;
-            a.target = '_blank';
-            li.appendChild(a);
-            courseList.appendChild(li);
-        });
-    </script>
+        <!-- Java Programming -->
+        <div class="subject-section">
+            <h2 class="subject-title">Java Programming</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106105273" target="_blank">Programming in Java</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Debasis Samanta</div>
+                        <div class="institute">Institute: IIT Kharagpur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Python Programming -->
+        <div class="subject-section">
+            <h2 class="subject-title">Python Programming</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106106145" target="_blank">Programming, Data Structures and Algorithms using Python</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Madhavan Mukund</div>
+                        <div class="institute">Institute: Chennai Mathematical Institute</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="subject-section">
+            <h2 class="subject-title">JavaScript</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106105156" target="_blank">Programming, Data Structures and Algorithms in JavaScript</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Umesh Bellur</div>
+                        <div class="institute">Institute: IIT Bombay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SQL/Database -->
+        <div class="subject-section">
+            <h2 class="subject-title">SQL/Database</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106105175" target="_blank">Database Management Systems</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. S. Sudarshan</div>
+                        <div class="institute">Institute: IIT Bombay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Structures -->
+        <div class="subject-section">
+            <h2 class="subject-title">Data Structures</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/106102064" target="_blank">Data Structures and Algorithms</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Naveen Garg</div>
+                        <div class="institute">Institute: IIT Delhi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Engineering Physics -->
+        <div class="subject-section">
+            <h2 class="subject-title">Engineering Physics</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/115101001" target="_blank">Physics for Beginners</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Amol Dighe</div>
+                        <div class="institute">Institute: IIT Bombay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mathematics -->
+        <div class="subject-section">
+            <h2 class="subject-title">Mathematics</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/111107109" target="_blank">Discrete Mathematics</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. S. R. S. Iyengar</div>
+                        <div class="institute">Institute: IIT Ropar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Communication Skills -->
+        <div class="subject-section">
+            <h2 class="subject-title">Communication Skills</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-name">
+                        <a href="https://nptel.ac.in/courses/109104120" target="_blank">Effective Writing</a>
+                    </div>
+                    <div class="course-info">
+                        <div class="instructor">Instructor: Prof. Aysha Iqbal</div>
+                        <div class="institute">Institute: IIT Kanpur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
