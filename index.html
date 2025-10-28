@@ -1,305 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PK Web Tools - Privacy-First Productivity Suite</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            color: white;
-            padding: 40px 20px;
-        }
-        
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .tool-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .tool-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .tool-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #667eea;
-        }
-        
-        .tool-card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .tool-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .about-section, .resources-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .about-section h2, .resources-section h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .about-section h3 {
-            color: #764ba2;
-            font-size: 1.4em;
-            margin: 25px 0 15px 0;
-        }
-        
-        .about-section p, .resources-section p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: #555;
-            text-align: justify;
-        }
-        
-        .about-section ul {
-            margin-left: 20px;
-            line-height: 2;
-        }
-        
-        .about-section li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-        
-        .resource-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .resource-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 10px;
-            padding: 20px;
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.3s ease;
-            border-left: 4px solid #667eea;
-        }
-        
-        .resource-card:hover {
-            transform: translateX(5px);
-        }
-        
-        .resource-card h3 {
-            color: #667eea;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-        
-        .resource-card p {
-            color: #666;
-            font-size: 0.95em;
-            margin: 0;
-        }
-        
-        footer {
-            text-align: center;
-            color: white;
-            padding: 30px 20px;
-            margin-top: 40px;
-        }
-        
-        footer p {
-            margin: 10px 0;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PK Web Tools - Privacy-First Productivity Suite</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; color: white; padding: 40px 20px; }
+    header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    header p { font-size: 1.1em; opacity: 0.95; }
+
+    .section { background: #fff; border-radius: 16px; padding: 28px; margin: 22px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .section h2 { color: #4a5bd4; margin-bottom: 14px; font-size: 1.8em; display: flex; align-items: center; gap: 10px; }
+    .section p.lead { color: #555; margin-bottom: 14px; }
+
+    .nptel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .course { border: 1px solid #e6e8ff; border-left: 5px solid #667eea; border-radius: 10px; padding: 14px; background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 60%); }
+    .course h3 { font-size: 1.05em; color: #2f3fb3; margin-bottom: 6px; }
+    .course .meta { font-size: 0.92em; color: #444; margin: 2px 0; }
+    .course a { color: #0b57d0; font-weight: 600; text-decoration: none; }
+
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 30px 0; }
+    .tool-card { background: white; border-radius: 15px; padding: 30px; text-decoration: none; color: #333; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: block; }
+    .tool-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .tool-icon { font-size: 3em; margin-bottom: 15px; }
+    .tool-card h3 { font-size: 1.5em; margin-bottom: 10px; color: #667eea; }
+    .tool-card p { color: #666; margin-bottom: 15px; }
+    .tool-button { display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 25px; font-weight: bold; margin-top: 10px; }
+
+    footer { text-align: center; color: white; padding: 30px 20px; margin-top: 40px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 PK Web Tools</h1>
-            <p>Your Privacy-First Productivity Suite</p>
-        </header>
-        
-        <div class="tools-grid">
-            <a href="/pdf_editor.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">📄</div>
-                    <h3>PDF Editor</h3>
-                    <p>Edit, merge, split, and manipulate PDF files directly in your browser. No uploads, complete privacy.</p>
-                </div>
-                <span class="tool-button">Open Editor</span>
-            </a>
-            
-            <a href="/scratchpad.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">📝</div>
-                    <h3>Scratchpad</h3>
-                    <p>Quick notes and drafts with auto-save. Your personal notepad that never leaves your device.</p>
-                </div>
-                <span class="tool-button">Start Writing</span>
-            </a>
-            
-            <a href="/planner.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">📅</div>
-                    <h3>Project Planner</h3>
-                    <p>Organize your projects, set milestones, and track progress efficiently with visual timeline.</p>
-                </div>
-                <span class="tool-button">Start Planning</span>
-            </a>
-            
-            <a href="/to-dolist.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">✅</div>
-                    <h3>To-Do List</h3>
-                    <p>Manage your daily tasks and stay organized with our intuitive task manager and priority system.</p>
-                </div>
-                <span class="tool-button">Manage Tasks</span>
-            </a>
-            
-            <a href="/pyqs.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">📚</div>
-                    <h3>PYQs</h3>
-                    <p>Access Previous Year Questions for exam preparation and study materials organized by subject.</p>
-                </div>
-                <span class="tool-button">View PYQs</span>
-            </a>
-            
-            <a href="/nptel-courses.html" class="tool-card">
-                <div>
-                    <div class="tool-icon">🎓</div>
-                    <h3>NPTEL Courses</h3>
-                    <p>Curated collection of NPTEL courses with direct links. Easy access to quality educational content.</p>
-                </div>
-                <span class="tool-button">Browse Courses</span>
-            </a>
-        </div>
-        
-        <div class="about-section" id="about">
-            <h2>📖 About PK Web Tools</h2>
-            
-            <h3>Our Mission</h3>
-            <p>PK Web Tools was created with a singular vision: to provide powerful, professional-grade productivity tools that respect your privacy and data sovereignty. In an era where most online services harvest user data for profit, we stand firmly against this practice. Our mission is to demonstrate that exceptional web applications can be built without compromising user privacy. Every tool in our suite runs entirely within your browser, utilizing modern web technologies to deliver desktop-class functionality without requiring server-side processing or data transmission. We believe that your documents, notes, and personal information should remain yours alone.</p>
-            
-            <h3>Who We Serve</h3>
-            <p>Our tools are designed for students, professionals, freelancers, and anyone who values both productivity and privacy. Whether you're a student managing assignments and studying from previous year questions, a developer organizing project milestones, a writer drafting content in our scratchpad, or a professional working with sensitive PDF documents, PK Web Tools provides the functionality you need. We've carefully crafted each tool to be intuitive enough for beginners while offering the depth that power users demand. Our mobile-responsive design ensures you can be productive whether you're at your desk or on the go, and our lightweight architecture means these tools work even on older devices or slow connections.</p>
-            
-            <h3>Privacy Philosophy</h3>
-            <p>Privacy isn't just a feature—it's the foundation of everything we build. Unlike traditional web applications that process your data on remote servers, every tool in the PK Web Tools suite operates using client-side JavaScript, meaning all processing happens locally in your browser. Your files never leave your device, and we don't use cookies, analytics trackers, or any technology that monitors your behavior. We don't collect emails, we don't require accounts, and we certainly never sell data because we don't have any data to sell. This is privacy by design, not privacy as an afterthought. Our open-source codebase means anyone can audit our privacy claims, and our commitment to remaining ad-free on tools with substantial content ensures that user experience is never compromised for monetization.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-                <li>🔒 100% Privacy - Your data never leaves your device</li>
-                <li>⚡ Fast and Lightweight - No heavy frameworks or bloat</li>
-                <li>📱 Mobile Friendly - Responsive design works on all devices</li>
-                <li>💾 Auto-Save - Your work is automatically saved locally</li>
-                <li>🌐 Works Offline - Most tools function without internet</li>
-                <li>🎨 Clean Interface - Intuitive design focused on usability</li>
-                <li>🆓 Completely Free - No subscriptions, no hidden costs</li>
-                <li>📖 Open Source - Transparent code available for review</li>
-            </ul>
-        </div>
-        
-        <div class="resources-section" id="resources">
-            <h2>📚 Resources and Tutorials</h2>
-            <p>Learn how to make the most of our tools with our comprehensive guides and tutorials. Whether you're new to the suite or looking to unlock advanced features, these resources will help you maximize your productivity.</p>
-            
-            <div class="resource-links">
-                <a href="/tutorial-getting-started.html" class="resource-card">
-                    <h3>🎯 Getting Started Guide</h3>
-                    <p>New to PK Web Tools? This comprehensive guide walks you through each tool, explaining core features and best practices to help you become productive immediately.</p>
-                </a>
-                
-                <a href="/tutorial-pdf-mastery.html" class="resource-card">
-                    <h3>📄 PDF Editor Mastery</h3>
-                    <p>Unlock the full potential of our PDF Editor. Learn advanced techniques for document manipulation, merging multiple files, extracting pages, and working with forms—all while maintaining complete privacy.</p>
-                </a>
-                
-                <a href="/tutorial-productivity-tips.html" class="resource-card">
-                    <h3>⚡ Productivity Power Tips</h3>
-                    <p>Discover workflow optimization strategies using our suite. This tutorial covers keyboard shortcuts, integration techniques, and productivity hacks to help you work smarter and faster.</p>
-                </a>
-            </div>
-        </div>
+  <div class="container">
+    <header>
+      <h1>🚀 PK Web Tools</h1>
+      <p>Your Privacy-First Productivity Suite</p>
+    </header>
+
+    <section class="section" id="nptel-courses">
+      <h2>🎓 Best NPTEL Courses (Curated)</h2>
+      <p class="lead">Handpicked NPTEL courses with direct links, instructors, and institutes for C, C++, Java, Python, JavaScript, SQL, Data Structures, Engineering Physics, Mathematics, Communication Skills, and other B.Tech 1st year essentials.</p>
+
+      <h3 style="color:#5b6bf5; margin:10px 0 6px;">Programming Languages</h3>
+      <div class="nptel-grid">
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106211" target="_blank" rel="noopener">Programming in C++</a></h3><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106217" target="_blank" rel="noopener">Programming in Modern C++</a></h3><div class="meta">Instructor: Prof. Partha Pratim Das</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/101/106101208" target="_blank" rel="noopener">Introduction to Programming in C</a></h3><div class="meta">Instructor: Prof. Satyadev Nandakumar</div><div class="meta">Institute: IIT Kanpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105171" target="_blank" rel="noopener">Programming in Java</a></h3><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106145" target="_blank" rel="noopener">Programming, Data Structures and Algorithms Using Python</a></h3><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: Chennai Mathematical Institute (CMI)</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106220" target="_blank" rel="noopener">Python for Data Science</a></h3><div class="meta">Instructor: Prof. Ragunathan Rengasamy (and team)</div><div class="meta">Institute: IIT Madras</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106093" target="_blank" rel="noopener">JavaScript (Web Development)</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/103/106103061" target="_blank" rel="noopener">Database Management System (SQL)</a></h3><div class="meta">Instructors: Prof. S. Sudarshan, Prof. Arnab Bhattacharya</div><div class="meta">Institute: IIT Bombay / IIT Kanpur</div></div>
+      </div>
+
+      <h3 style="color:#5b6bf5; margin:16px 0 6px;">Data Structures and Algorithms</h3>
+      <div class="nptel-grid">
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/102/106102064" target="_blank" rel="noopener">Data Structures and Algorithms</a></h3><div class="meta">Instructor: Prof. Naveen Garg</div><div class="meta">Institute: IIT Delhi</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105225" target="_blank" rel="noopener">Data Structures and Algorithms Using Java</a></h3><div class="meta">Instructor: Prof. Debasis Samanta</div><div class="meta">Institute: IIT Kharagpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/104/106104170" target="_blank" rel="noopener">Design and Analysis of Algorithms</a></h3><div class="meta">Instructor: Prof. Madhavan Mukund</div><div class="meta">Institute: CMI (via NPTEL)</div></div>
+      </div>
+
+      <h3 style="color:#5b6bf5; margin:16px 0 6px;">B.Tech 1st Year Core</h3>
+      <div class="nptel-grid">
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/115/104/115104095" target="_blank" rel="noopener">Engineering Physics I</a></h3><div class="meta">Institute: IIT Guwahati / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/115/101/115101004" target="_blank" rel="noopener">Engineering Physics II</a></h3><div class="meta">Institute: IIT Kanpur / IIT Bombay</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/111/104/111104085" target="_blank" rel="noopener">Engineering Mathematics I</a></h3><div class="meta">Instructor: Prof. Inder K. Rana (and others)</div><div class="meta">Institute: IIT Bombay</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/111/104/111104086" target="_blank" rel="noopener">Engineering Mathematics II</a></h3><div class="meta">Institute: IIT Kanpur / IIT Roorkee</div><div class="meta">Instructor: NPTEL Faculty</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/109/104/109104116" target="_blank" rel="noopener">Communication Skills</a></h3><div class="meta">Instructor: Prof. T. Ravichandran</div><div class="meta">Institute: IIT Kanpur</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/112/103/112103174" target="_blank" rel="noopener">Engineering Mechanics</a></h3><div class="meta">Instructor: Prof. S. Anil Lal</div><div class="meta">Institute: IIT Madras</div></div>
+      </div>
+
+      <h3 style="color:#5b6bf5; margin:16px 0 6px;">Notable Extras (Highly Recommended)</h3>
+      <div class="nptel-grid">
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/105/106105214" target="_blank" rel="noopener">Introduction to Machine Learning</a></h3><div class="meta">Instructor: Prof. B. Ravindran</div><div class="meta">Institute: IIT Madras</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/106/106106182" target="_blank" rel="noopener">Operating Systems</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+        <div class="course"><h3><a href="https://nptel.ac.in/courses/106/102/106102012" target="_blank" rel="noopener">Computer Networks</a></h3><div class="meta">Instructor: NPTEL Faculty</div><div class="meta">Institute: IITs via NPTEL</div></div>
+      </div>
+
+      <p class="lead" style="margin-top:12px; font-size:0.9em; color:#666;">Tip: Click a course to view the current run on NPTEL/SWAYAM and enroll when available. Links open in a new tab.</p>
+    </section>
+
+    <!-- Existing tools -->
+    <div class="tools-grid">
+      <a class="tool-card" href="/pdf_editor.html"><div><div class="tool-icon">📄</div><h3>PDF Editor</h3><p>Edit, merge, split, and manipulate PDF files directly in your browser. No uploads, complete privacy.</p></div><span class="tool-button">Open Editor</span></a>
+      <a class="tool-card" href="/scratchpad.html"><div><div class="tool-icon">📝</div><h3>Scratchpad</h3><p>Quick notes and drafts with auto-save. Your personal notepad that never leaves your device.</p></div><span class="tool-button">Start Writing</span></a>
+      <a class="tool-card" href="/planner.html"><div><div class="tool-icon">📅</div><h3>Project Planner</h3><p>Organize your projects, set milestones, and track progress efficiently with visual timeline.</p></div><span class="tool-button">Start Planning</span></a>
+      <a class="tool-card" href="/to-dolist.html"><div><div class="tool-icon">✅</div><h3>To-Do List</h3><p>Manage your daily tasks and stay organized with our intuitive task manager and priority system.</p></div><span class="tool-button">Manage Tasks</span></a>
+      <a class="tool-card" href="/pyqs.html"><div><div class="tool-icon">📚</div><h3>PYQs</h3><p>Access Previous Year Questions for exam preparation and study materials organized by subject.</p></div><span class="tool-button">View PYQs</span></a>
+      <a class="tool-card" href="/nptel-courses.html"><div><div class="tool-icon">🎓</div><h3>NPTEL Courses</h3><p>Curated collection of NPTEL courses with direct links. Easy access to quality educational content.</p></div><span class="tool-button">Browse Courses</span></a>
     </div>
-    
-    <footer>
-        <p>© 2025 PK Web Tools | Made with ❤️ for privacy-conscious users</p>
-        <p style="margin-top: 10px; font-size: 0.9em;">All tools are open source and privacy-focused. Your data stays on your device.</p>
-    </footer>
+
+    <section class="section" id="about">
+      <h2>📖 About PK Web Tools</h2>
+      <p>PK Web Tools provides professional-grade, privacy-first web tools that run fully in your browser. No data leaves your device.</p>
+      <ul style="margin-left:18px; color:#555; line-height:1.9;">
+        <li>🔒 100% Privacy - Your data never leaves your device</li>
+        <li>⚡ Fast and Lightweight - No heavy frameworks or bloat</li>
+        <li>📱 Mobile Friendly - Responsive design works on all devices</li>
+        <li>💾 Auto-Save - Your work is automatically saved locally</li>
+        <li>🌐 Works Offline - Most tools function without internet</li>
+        <li>🎨 Clean Interface - Intuitive design focused on usability</li>
+        <li>🆓 Completely Free - No subscriptions, no hidden costs</li>
+        <li>📖 Open Source - Transparent code available for review</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 PK Web Tools | Made with ❤️ for privacy-conscious users
+    <p style="margin-top: 10px; font-size: 0.9em;">All tools are open source and privacy-focused. Your data stays on your device.</p>
+  </footer>
 </body>
 </html>
