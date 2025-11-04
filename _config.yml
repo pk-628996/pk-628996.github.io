@@ -7,7 +7,7 @@ baseurl: "/site" # the subpath of your site, e.g. /blog
 email: pkpkk@pkpkk.eu.org
 github_username: pk-628996
 twitter_username: mytwitter
-
+permalink: /blog/:title/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
