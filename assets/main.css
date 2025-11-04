@@ -1,3 +1,9 @@
+/* ========================================
+   MODERN JEKYLL SITE STYLESHEET
+   Updated: 2025-11-05
+   Issues Fixed: See inline comments marked with FIX
+   ======================================== */
+
 /* Reset and base */
 * {
   box-sizing: border-box;
@@ -16,7 +22,11 @@ body {
   padding: 40px 20px;
 }
 
-/* Glass container */
+/* ========================================
+   GLASS CONTAINERS
+   ======================================== */
+
+/* Main content glass container */
 .glass-container {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -30,26 +40,73 @@ body {
   box-sizing: border-box;
 }
 
-/* Header */
-header {
+/* FIX #6: Added missing .glass-container-header class */
+.glass-container-header {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   width: 100%;
+  max-width: 900px;
+  padding: 20px 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-header h1 {
+.glass-container-header > a {
   font-weight: 900;
-  font-size: 2.4rem;
+  font-size: 2rem;
   letter-spacing: 2px;
   color: #fff;
+  text-decoration: none;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
 }
 
+.glass-container-header > a:hover {
+  color: #ffdd57;
+}
+
+/* FIX #6: Added missing .glass-container-footer class */
+.glass-container-footer {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  text-align: center;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.glass-container-footer a {
+  color: #ffdd57;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.glass-container-footer a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #ffdd57;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
 nav a {
-  color: #e0e0ff;
+  color: #ffffff; /* FIX #13: Improved contrast from #e0e0ff */
   margin-left: 30px;
   text-decoration: none;
   font-weight: 600;
@@ -61,6 +118,10 @@ nav a:hover {
   color: #ffdd57;
   text-shadow: 0 0 8px #ffdd57;
 }
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
 
 /* Page title */
 h1.page-title {
@@ -82,7 +143,10 @@ h2 {
   padding-bottom: 6px;
 }
 
-/* Posts */
+/* ========================================
+   POSTS LIST
+   ======================================== */
+
 .posts-list {
   list-style: none;
   padding-left: 0;
@@ -109,7 +173,7 @@ h2 {
 .posts-list time {
   display: block;
   font-style: italic;
-  color: #ddd;
+  color: #f0f0f0; /* FIX #13: Improved contrast from #ddd */
   font-size: 0.9rem;
   margin-bottom: 6px;
 }
@@ -128,7 +192,10 @@ h2 {
   text-shadow: none;
 }
 
-/* RSS subscription */
+/* ========================================
+   RSS SUBSCRIPTION
+   ======================================== */
+
 .rss-link {
   margin-top: 30px;
   font-size: 1rem;
@@ -148,28 +215,139 @@ h2 {
   text-shadow: 0 0 8px #ffdd57;
 }
 
-/* Footer */
-footer {
-  margin-top: 50px;
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-  color: #ddd;
-  font-size: 0.9rem;
-  padding: 15px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  text-shadow: 0 0 4px rgba(0,0,0,0.2);
+/* ========================================
+   ACCESSIBILITY - FIX #12
+   ======================================== */
+
+/* Focus States for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid #ffdd57;
+  outline-offset: 2px;
 }
 
-footer a {
-  color: #ffdd57;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+a:focus:not(:focus-visible) {
+  outline: none;
 }
 
-footer a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #ffdd57;
+a:focus-visible {
+  outline: 3px solid #ffdd57;
+  outline-offset: 2px;
 }
+
+/* ========================================
+   RESPONSIVE DESIGN - FIX #11
+   ======================================== */
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px 15px;
+  }
+  
+  .glass-container {
+    padding: 25px 20px;
+  }
+  
+  .glass-container-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .glass-container-header > a {
+    font-size: 1.5rem;
+  }
+  
+  h1.page-title {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  nav a {
+    margin-left: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .posts-list li {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-container-header {
+    padding: 15px;
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  nav a {
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  h1.page-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ========================================
+   PRINT STYLES - FIX #14
+   ======================================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .glass-container,
+  .glass-container-header,
+  .glass-container-footer {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  nav a,
+  a {
+    color: blue;
+    text-shadow: none;
+    text-decoration: underline;
+  }
+  
+  .posts-list li {
+    background: white;
+    border: 1px solid #ddd;
+  }
+}
+
+/* ========================================
+   MOTION PREFERENCES - FIX #15
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   OBSOLETE/REDUNDANT STYLES REMOVED
+   FIX #7 & #8: Removed conflicting header/footer styles
+   These were replaced by .glass-container-header/footer
+   ======================================== */
