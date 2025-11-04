@@ -1,9 +1,13 @@
 theme: minima
-title: My Blog
-description: Welcome to my Jekyll blog on GitHub Pages!
-author: Your Name
-url: "https://pkpkk.eu.org"
-baseurl: "site" # the subpath of your site, e.g. /blog    
+title: Surprise
+description: Welcome To this site Stay tuned for surprises!
+author: Prince Kumar
+url: "https://pkpkk.eu.org/site"
+baseurl: "" # the subpath of your site, e.g. /blog  
+email: pkpkk@pkpkk.eu.org
+github_username: pk-628996
+twitter_username: mytwitter
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
