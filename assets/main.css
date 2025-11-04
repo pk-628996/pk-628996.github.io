@@ -11,8 +11,8 @@
 }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  color: #2c3e50;
+  background: linear-gradient(135deg, #3a4f66 0%, #576a7d 50%, #6b7f94 100%);
+  color: #e8ecf0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,13 +55,13 @@ body {
   font-weight: 900;
   font-size: 2rem;
   letter-spacing: 2px;
-  color: #764ba2;
+  color: #3a4f66;
   text-decoration: none;
-  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
+  text-shadow: 0 2px 8px rgba(58, 79, 102, 0.3);
   transition: color 0.3s ease;
 }
 .glass-container-header > a:hover {
-  color: #667eea;
+  color: #576a7d;
 }
 /* FIX #6: Added missing .glass-container-footer class */
 .glass-container-footer {
@@ -80,15 +80,15 @@ body {
   font-size: 0.9rem;
 }
 .glass-container-footer a {
-  color: #667eea;
+  color: #3a4f66;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 .glass-container-footer a:hover {
-  color: #764ba2;
-  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
+  color: #576a7d;
+  text-shadow: 0 2px 8px rgba(87, 106, 125, 0.3);
 }
 /* ========================================
    NAVIGATION
@@ -102,8 +102,8 @@ nav a {
   transition: color 0.3s ease;
 }
 nav a:hover {
-  color: #667eea;
-  text-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  color: #3a4f66;
+  text-shadow: 0 2px 8px rgba(58, 79, 102, 0.3);
 }
 /* ========================================
    TYPOGRAPHY
@@ -113,9 +113,9 @@ h1.page-title {
   margin-top: 30px;
   font-weight: 700;
   font-size: 2.8rem;
-  color: #764ba2;
+  color: #3a4f66;
   text-align: center;
-  text-shadow: 0 3px 12px rgba(118, 75, 162, 0.3);
+  text-shadow: 0 3px 12px rgba(58, 79, 102, 0.3);
 }
 /* Section subtitles */
 h2 {
@@ -123,7 +123,7 @@ h2 {
   font-weight: 700;
   font-size: 1.8rem;
   color: #2c3e50;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #576a7d;
   padding-bottom: 6px;
 }
 /* ========================================
@@ -135,20 +135,20 @@ h2 {
   margin-top: 10px;
 }
 .posts-list li {
-  background: rgba(102, 126, 234, 0.08);
+  background: rgba(58, 79, 102, 0.08);
   margin-bottom: 18px;
   padding: 20px 25px;
   border-radius: 15px;
   color: #2c3e50;
-  border: 1px solid rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(58, 79, 102, 0.15);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 .posts-list li:hover {
-  background: rgba(102, 126, 234, 0.15);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+  background: rgba(58, 79, 102, 0.15);
+  border-color: rgba(58, 79, 102, 0.3);
+  box-shadow: 0 5px 20px rgba(58, 79, 102, 0.2);
   transform: translateY(-2px);
 }
 .posts-list time {
@@ -162,11 +162,11 @@ h2 {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.3rem;
-  color: #764ba2;
+  color: #3a4f66;
   transition: color 0.3s ease;
 }
 .posts-list a:hover {
-  color: #667eea;
+  color: #576a7d;
 }
 /* ========================================
    RSS SUBSCRIPTION
@@ -178,14 +178,14 @@ h2 {
   color: #5a6c7d;
 }
 .rss-link a {
-  color: #667eea;
+  color: #3a4f66;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 .rss-link a:hover {
-  color: #764ba2;
-  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
+  color: #576a7d;
+  text-shadow: 0 2px 8px rgba(87, 106, 125, 0.3);
 }
 /* ========================================
    ACCESSIBILITY - FIX #12
@@ -195,14 +195,14 @@ a:focus,
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 3px solid #667eea;
+  outline: 3px solid #576a7d;
   outline-offset: 2px;
 }
 a:focus:not(:focus-visible) {
   outline: none;
 }
 a:focus-visible {
-  outline: 3px solid #667eea;
+  outline: 3px solid #576a7d;
   outline-offset: 2px;
 }
 /* ========================================
