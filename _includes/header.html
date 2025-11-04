@@ -1,11 +1,12 @@
 <header>
   <div class="glass-container-header">
-    <h1>Surprise</h1>
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
     </nav>
   </div>
 </header>
+<header class="site-header">
