@@ -3,51 +3,46 @@
    Updated: 2025-11-05
    Issues Fixed: See inline comments marked with FIX
    ======================================== */
-
 /* Reset and base */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
-  color: #f0f0f3;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: #2c3e50;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
 }
-
 /* ========================================
    GLASS CONTAINERS
    ======================================== */
-
 /* Main content glass container */
 .glass-container {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 900px;
   padding: 40px 50px;
   box-sizing: border-box;
 }
-
 /* FIX #6: Added missing .glass-container-header class */
 .glass-container-header {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 900px;
   padding: 20px 30px;
@@ -56,191 +51,163 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
 .glass-container-header > a {
   font-weight: 900;
   font-size: 2rem;
   letter-spacing: 2px;
-  color: #fff;
+  color: #764ba2;
   text-decoration: none;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
   transition: color 0.3s ease;
 }
-
 .glass-container-header > a:hover {
-  color: #ffdd57;
+  color: #667eea;
 }
-
 /* FIX #6: Added missing .glass-container-footer class */
 .glass-container-footer {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 900px;
   padding: 20px 30px;
   margin-top: 30px;
   text-align: center;
-  color: #ddd;
+  color: #5a6c7d;
   font-size: 0.9rem;
 }
-
 .glass-container-footer a {
-  color: #ffdd57;
+  color: #667eea;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
-
 .glass-container-footer a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #ffdd57;
+  color: #764ba2;
+  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
 }
-
 /* ========================================
    NAVIGATION
    ======================================== */
-
 nav a {
-  color: #ffffff; /* FIX #13: Improved contrast from #e0e0ff */
+  color: #2c3e50;
   margin-left: 30px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
-
 nav a:hover {
-  color: #ffdd57;
-  text-shadow: 0 0 8px #ffdd57;
+  color: #667eea;
+  text-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
-
 /* ========================================
    TYPOGRAPHY
    ======================================== */
-
 /* Page title */
 h1.page-title {
   margin-top: 30px;
   font-weight: 700;
   font-size: 2.8rem;
-  color: #ffdd57;
+  color: #764ba2;
   text-align: center;
-  text-shadow: 0 0 10px #ffdd57;
+  text-shadow: 0 3px 12px rgba(118, 75, 162, 0.3);
 }
-
 /* Section subtitles */
 h2 {
   margin: 30px 0 20px 0;
   font-weight: 700;
   font-size: 1.8rem;
-  color: #cce0ff;
-  border-bottom: 2px solid #ffdd57;
+  color: #2c3e50;
+  border-bottom: 3px solid #667eea;
   padding-bottom: 6px;
 }
-
 /* ========================================
    POSTS LIST
    ======================================== */
-
 .posts-list {
   list-style: none;
   padding-left: 0;
   margin-top: 10px;
 }
-
 .posts-list li {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(102, 126, 234, 0.08);
   margin-bottom: 18px;
   padding: 20px 25px;
   border-radius: 15px;
-  color: #f9f9f9;
-  box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
+  color: #2c3e50;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   cursor: pointer;
 }
-
 .posts-list li:hover {
-  background: rgba(255, 221, 87, 0.4);
-  color: #222;
-  transform: scale(1.02);
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
 }
-
 .posts-list time {
   display: block;
   font-style: italic;
-  color: #f0f0f0; /* FIX #13: Improved contrast from #ddd */
+  color: #5a6c7d;
   font-size: 0.9rem;
   margin-bottom: 6px;
 }
-
 .posts-list a {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.3rem;
-  color: #fff;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  color: #764ba2;
   transition: color 0.3s ease;
 }
-
 .posts-list a:hover {
-  color: #222;
-  text-shadow: none;
+  color: #667eea;
 }
-
 /* ========================================
    RSS SUBSCRIPTION
    ======================================== */
-
 .rss-link {
   margin-top: 30px;
   font-size: 1rem;
   text-align: center;
-  color: #eee;
+  color: #5a6c7d;
 }
-
 .rss-link a {
-  color: #ffdd57;
+  color: #667eea;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .rss-link a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #ffdd57;
+  color: #764ba2;
+  text-shadow: 0 2px 8px rgba(118, 75, 162, 0.3);
 }
-
 /* ========================================
    ACCESSIBILITY - FIX #12
    ======================================== */
-
 /* Focus States for keyboard navigation */
 a:focus,
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 3px solid #ffdd57;
+  outline: 3px solid #667eea;
   outline-offset: 2px;
 }
-
 a:focus:not(:focus-visible) {
   outline: none;
 }
-
 a:focus-visible {
-  outline: 3px solid #ffdd57;
+  outline: 3px solid #667eea;
   outline-offset: 2px;
 }
-
 /* ========================================
    RESPONSIVE DESIGN - FIX #11
    ======================================== */
-
 @media (max-width: 768px) {
   body {
     padding: 20px 15px;
@@ -277,7 +244,6 @@ a:focus-visible {
     padding: 15px 20px;
   }
 }
-
 @media (max-width: 480px) {
   .glass-container-header {
     padding: 15px;
@@ -299,11 +265,9 @@ a:focus-visible {
     font-size: 1.8rem;
   }
 }
-
 /* ========================================
    PRINT STYLES - FIX #14
    ======================================== */
-
 @media print {
   body {
     background: white;
@@ -330,11 +294,9 @@ a:focus-visible {
     border: 1px solid #ddd;
   }
 }
-
 /* ========================================
    MOTION PREFERENCES - FIX #15
    ======================================== */
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -345,7 +307,6 @@ a:focus-visible {
     scroll-behavior: auto !important;
   }
 }
-
 /* ========================================
    OBSOLETE/REDUNDANT STYLES REMOVED
    FIX #7 & #8: Removed conflicting header/footer styles
