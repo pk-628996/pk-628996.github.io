@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my test post"
-date: 2025-11-05
+date: 2025-11-04
 tags: [jekyll, github-pages, tutorial]
 ---
 
