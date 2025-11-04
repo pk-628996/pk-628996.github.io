@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I Built My Blog"
+title: "my test post"
 date: 2025-11-05
 tags: [jekyll, github-pages, tutorial]
 ---
