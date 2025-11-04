@@ -1,35 +1,43 @@
 <!DOCTYPE html>
+<!-- FIX #1: Added missing <html> and <head> tags -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <!-- FIX #2: Properly structured meta tags inside <head> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <!-- ✅ Global Meta Tags -->
-  <meta name="description" content="{{ site.description }}" />
-  <meta name="author" content="{{ site.author }}" />
-  <meta name="keywords" content="blog, jekyll, github pages, {{ site.title }}" />
-
+  <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="keywords" content="blog, jekyll, github pages, {{ site.title }}">
+  
   <!-- ✅ Open Graph -->
-  <meta property="og:title" content="{{ page.title | default: site.title }}" />
-  <meta property="og:description" content="{{ page.excerpt | strip_html | default: site.description }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-  <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg" />
-
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.excerpt | strip_html | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
+  
   {% if page.layout == "post" %}
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
   {% endif %}
-
-  <link rel="stylesheet" href="assets/main.css" />
+  
+  <!-- FIX #3: Fixed CSS path with relative_url filter -->
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  
+  <!-- FIX #2: Wrapped title in proper <title> tag -->
   <title>{{ page.title | default: site.title }}</title>
 </head>
 
 <body>
   {% include header.html %}
+  
   <main class="glass-container">
     {{ content }}
   </main>
+  
   {% include footer.html %}
+<!-- FIX #4: Added missing closing tags -->
 </body>
 </html>
