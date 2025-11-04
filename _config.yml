@@ -3,7 +3,7 @@ title: Surprise
 description: Welcome To this site Stay tuned for surprises!
 author: Prince Kumar
 url: "https://pkpkk.eu.org/site"
-baseurl: "" # the subpath of your site, e.g. /blog  
+baseurl: "blog" # the subpath of your site, e.g. /blog  
 email: pkpkk@pkpkk.eu.org
 github_username: pk-628996
 twitter_username: mytwitter
