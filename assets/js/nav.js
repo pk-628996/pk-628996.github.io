@@ -2,8 +2,13 @@
  * Enhanced Navigation Script
  * Handles mobile navigation toggle and smooth scrolling
  */
-
 document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector(".post-content");
+  if (!content) return;
+  const text = content.innerText || "";
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 180)); // ~180 wpm
+  document.getElementById("reading-time-text").textContent = `${minutes} min read`;
   // Mobile navigation toggle
   const navToggle = document.getElementById('nav-toggle');
   const siteNav = document.getElementById('site-nav');
