@@ -4,7 +4,7 @@ description: Welcome To this site Stay tuned for surprises!
 author: Prince Kumar
 email: pkpkk@pkpkk.eu.org
 github_username: pk-628996
-twitter_username: mytwitter
+twitter_username: example.com
 url: "https://pkpkk.eu.org"
 baseurl: "/site"
 permalink: /blog/:title/
