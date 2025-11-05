@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Useful Courses on NPTEL"
+image: https://i.ibb.co/bjXT1jrP/Screenshot-2025-11-05-153036.jpg
 date: 2025-11-05
 tags: [courses, nptel, engineering, free, free courses, jekyll, github-pages, tutorial]
 ---
