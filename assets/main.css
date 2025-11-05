@@ -142,6 +142,7 @@ body {
   display: flex;
   gap: 30px;
   align-items: center;
+  z-index: 1000;
 }
 
 .site-nav a {
@@ -151,7 +152,8 @@ body {
   font-size: 1.1rem;
   transition: all var(--transition-normal);
   position: relative;
-  padding-bottom: 5px;
+  padding-bottom: 5px; 
+  z-index: 1000;
 }
 
 .site-nav a::after {
@@ -942,16 +944,18 @@ a:focus-visible {
     padding: 20px;
     border-radius: 0 0 var(--radius-md) var(--radius-md);
     box-shadow: var(--shadow-md);
-    z-index: 999;
+    z-index: 1001;
   }
   
   .site-nav.active {
-    display: flex;
+    display: flex; 
+    z-index: 1010;
   }
   
   .site-nav a {
     padding: 10px;
-    text-align: center;
+    text-align: center; 
+    z-index: 1010;
   }
   
   .hero-title {
