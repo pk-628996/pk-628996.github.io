@@ -3,7 +3,7 @@
  * Handles mobile navigation toggle and smooth scrolling
  */
 document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelector(".post-content");
+  const content = document.querySelector(".post-content")[0];
   if (!content) return;
   const text = content.innerText || "";
   const words = text.trim().split(/\s+/).length;
