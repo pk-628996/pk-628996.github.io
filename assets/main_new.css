@@ -1,10 +1,116 @@
+/* --- Natural Markdown Theme --- */
+
+:root {
+  --background: #fdfcf9;       /* soft warm white */
+  --text: #2b2b2b;             /* deep gray */
+  --accent: #4a7856;           /* muted green */
+  --border: #e0ddd5;           /* light beige border */
+  --code-bg: #fff8e5;          /* gentle highlight */
+  --link: #3a6b7c;             /* calm blue-green link */
+  --link-hover: #274d58;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0d586;
-  color: #e8ecf0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Georgia", "Merriweather", serif;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent);
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+/* Paragraphs & Lists */
+p, ul, ol {
+  margin-bottom: 1.2rem;
+}
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--code-bg);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #444;
+}
+
+/* Code blocks and inline code */
+pre, code {
+  font-family: "Fira Code", "Courier New", monospace;
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+code {
+  padding: 0.2rem 0.4rem;
+}
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+}
+th {
+  background: #f5f3ef;
+  text-align: left;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin: 1rem auto;
 }
