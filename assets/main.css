@@ -120,6 +120,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index:1;
   gap: 20px;
 }
 
@@ -190,6 +191,7 @@ body {
 .hamburger {
   width: 25px;
   height: 3px;
+  z-index:1;
   background: var(--primary-color);
   border-radius: 2px;
   transition: all var(--transition-normal);
@@ -287,6 +289,7 @@ a:hover {
    ======================================== */
 .btn {
   display: inline-block;
+  z-index:1;
   padding: 12px 30px;
   border-radius: var(--radius-sm);
   text-decoration: none;
