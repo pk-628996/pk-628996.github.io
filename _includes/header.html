@@ -1,13 +1,14 @@
-<header>
-  <!-- FIX #5: Using glass-container-header class (needs CSS definition) -->
-
-    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav>
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="/site/" class="site-title">Surprise</a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/site/">Home</a>
+      <a href="/site/about/">About</a>
+      <a href="/site/blog/">Blog</a>
+      <a href="/site/contact/">Contact</a>
     </nav>
-
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
 </header>
-<!-- FIX #5: Removed empty <header class="site-header"> tag that was here -->
