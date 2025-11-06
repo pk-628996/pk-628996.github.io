@@ -121,12 +121,18 @@ body {
    ======================================== */
 
 /* Navigation Container */
+/* ========================================
+   NAVIGATION - MOBILE FIXES
+   ======================================== */
+
+/* Navigation Container */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* Added for absolute positioning of mobile menu */
+  position: relative;
   gap: 20px;
+  z-index: 1000; /* Ensure container has base z-index */
 }
 
 .site-title {
@@ -137,7 +143,8 @@ body {
   text-decoration: none;
   text-shadow: 0 2px 8px rgba(58, 79, 102, 0.3);
   transition: color var(--transition-normal);
-  z-index: 1000;
+  z-index: 1002; /* Above mobile menu */
+  position: relative;
 }
 
 .site-title:hover {
@@ -149,6 +156,7 @@ body {
   display: flex;
   gap: 30px;
   align-items: center;
+  z-index: 1001;
 }
 
 .site-nav a {
@@ -192,7 +200,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 8px;
-  z-index: 1002; /* Higher than nav menu */
+  z-index: 1003; /* Highest - always clickable */
   position: relative;
 }
 
@@ -208,6 +216,12 @@ body {
    RESPONSIVE MOBILE NAVIGATION
    ======================================== */
 @media (max-width: 768px) {
+  /* Ensure header container has high z-index */
+  .glass-container-header {
+    position: relative;
+    z-index: 1000;
+  }
+  
   /* Show hamburger button */
   .nav-toggle {
     display: flex;
@@ -217,19 +231,19 @@ body {
   .site-nav {
     display: none;
     position: absolute;
-    top: calc(100% + 10px); /* Position below nav-container */
-    left: 0;
-    right: 0;
+    top: calc(100% + 15px); /* Position below nav-container with gap */
+    left: -30px; /* Align with container padding */
+    right: -30px;
     background: var(--glass-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     flex-direction: column;
     padding: 20px;
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     border: 1px solid var(--glass-border);
-    z-index: 1001;
-    gap: 0; /* Remove gap for mobile */
+    z-index: 999; /* Below toggle button but above content */
+    gap: 0;
   }
   
   /* Show nav when active */
@@ -245,6 +259,7 @@ body {
     border-bottom: 1px solid rgba(58, 79, 102, 0.1);
     font-size: 1.1rem;
     width: 100%;
+    z-index: 999;
   }
   
   .site-nav a:last-child {
@@ -273,6 +288,12 @@ body {
       transform: translateY(0);
     }
   }
+  
+  /* Ensure main content is below navigation */
+  .glass-container {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 480px) {
@@ -283,6 +304,11 @@ body {
   .site-nav a {
     font-size: 1rem;
     padding: 12px 10px;
+  }
+  
+  .site-nav {
+    left: -20px;
+    right: -20px;
   }
 }
 
