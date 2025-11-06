@@ -6,7 +6,7 @@ date: 2025-11-06
 tags: [courses, nptel, engineering, free, free courses, jekyll, github-pages, tutorial]
 ---
 
-# [NOC: Programming in Java (106105191)](https://nptel.ac.in/courses/106105191)  
+# [NOC: Programming in Java](https://nptel.ac.in/courses/106105191)  
 **Institution:** IIT Kharagpur  
 **Instructor:** Prof. Debasis Samanta  
 **Platform:** NPTEL  
