@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PYQs NIT Raipur Midsem autumn 2025"
-image: https://i.ibb.co/bjXT1jrP/Screenshot-2025-11-05-153036.jpg
+image: https://i.ibb.co/jkZnQtSW/Copilot-20251106-234212.png
 date: 2025-11-06
 tags: [pyq, nit raipur, mid-sem2025, autumn, pyqs, engineering, free, free courses, jekyll, github-pages, tutorial]
 ---
