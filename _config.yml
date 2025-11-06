@@ -6,7 +6,7 @@ email: pkpkk@pkpkk.eu.org
 github_username: pk-628996
 twitter_username: example.com
 url: "https://pkpkk.eu.org"
-baseurl: "/site"
+baseurl: ""
 permalink: /blog/:title/
 plugins:
   - jekyll-feed
