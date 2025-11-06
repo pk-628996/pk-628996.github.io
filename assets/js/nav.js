@@ -3,8 +3,7 @@
  * Handles mobile navigation toggle and smooth scrolling
  */
 document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelector(".post-content")[0];
-  if (!content) return;
+  const content = document.querySelector(".post-content");
   const text = content.innerText || "";
   const words = text.trim().split(/\s+/).length;
   const minutes = Math.max(1, Math.round(words / 180)); // ~180 wpm
