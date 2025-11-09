@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Few Things to Fix in Myself
+title: "Few Things to Fix in Myself"
 date: 2025-11-09
 tags: ['engineering'] 
 ---
