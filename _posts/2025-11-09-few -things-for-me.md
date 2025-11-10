@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Few Things to Fix in Myself"
+image: https://i.ibb.co/jvGW9kSz/Gemini-Generated-Image-bkdtuzbkdtuzbkdt.png
 date: 2025-11-09
 tags: ['engineering'] 
 ---
@@ -11,7 +12,7 @@ Feeling anxious or hesitant to engage with new people — especially in situatio
 
 Let’s break this down and work through it step-by-step, in a way that’s practical and gentle 👇
 
----
+
 
 ## 🧩 1. Understand What’s Happening
 
@@ -24,7 +25,7 @@ What you’re describing — hesitation before entering, freezing when put on th
 The good news?
 This isn’t a fixed personality trait. It’s a **learnable skill**, just like coding, design, or lab work.
 
----
+
 
 ## 🌱 2. Start Small — Build “Social Stamina”
 
@@ -38,7 +39,7 @@ You don’t need to jump straight into club interviews. Begin with **tiny, low-p
 These short interactions teach your brain: *“Talking to people isn’t dangerous.”*
 Over time, your anxiety level before social situations will naturally drop.
 
----
+
 
 ## 💬 3. Prepare Simple Conversation Starters
 
@@ -51,7 +52,7 @@ You can start with:
 
 You don’t need fancy words. The goal is just to **get the conversation moving** — people appreciate genuine curiosity.
 
----
+
 
 ## 🧠 4. Reframe the PI (Personal Interview)
 
@@ -64,7 +65,6 @@ If you feel too nervous:
 * Before entering, take one slow deep breath — in for 4 seconds, out for 4 seconds.
 * Even if you stutter or forget something, **smile and continue**. Nobody expects perfection from a first-year student.
 
----
 
 ## 🧍‍♂️ 5. Try Gradual Exposure
 
@@ -78,7 +78,6 @@ Try:
 
 You’ll find each stage gets *a little easier*.
 
----
 
 ## 🧩 6. Practice Speaking Comfortably
 
@@ -88,7 +87,6 @@ You can improve this skill privately first:
 * Practice in front of a mirror or with one trusted friend.
 * Join online speaking clubs (like **Toastmasters Youth**, or **college communication clubs**) later.
 
----
 
 ## 💚 7. Be Kind to Yourself
 
@@ -101,7 +99,6 @@ What matters is:
 
 Even confident speakers often started exactly where you are now.
 
----
 
 ### 🌤️ Small Challenge (if you’d like to start this week):
 
@@ -114,7 +111,7 @@ Try just **one** of these:
 That’s it.
 It’s not about doing it perfectly — it’s about **showing up** once. Then again next week.
 
----
+
 
 If you’d like, I can help you write a **small self-introduction** or **PI answer script** that sounds natural and confident for club interviews — so you’ll feel more prepared before entering.
 
@@ -126,7 +123,7 @@ Perfect 👍 — let’s make this as easy and comfortable as possible for you.
 We’ll start by creating a **simple, natural self-introduction** and then a few **sample answers** you can use in a **club PI (personal interview)** or when meeting new people.
 You can tweak them later to match your real personality — the idea is to *sound like yourself, just a calmer, more confident version.*
 
----
+
 
 ## 🪞 Step 1: Your Self-Introduction (base script)
 
@@ -136,7 +133,7 @@ When you walk into a PI or club room, they usually say:
 
 You can use this structure 👇
 
----
+
 
 ### 🌟 Example:
 
@@ -145,7 +142,7 @@ You can use this structure 👇
 > I joined MME because I’m interested in how materials shape technology — from steel to semiconductors.
 > I enjoy learning new things, and I’m looking to explore areas beyond academics, which is why I’m interested in joining this club — to improve my skills and meet new people.”
 
----
+
 
 ### 🧩 Why it works:
 
@@ -156,14 +153,14 @@ You can use this structure 👇
 
 You can practice this in front of a mirror or record yourself — just to get comfortable hearing your own voice.
 
----
+
 
 ## 🗣️ Step 2: Common PI Questions and How to Answer Them
 
 Here are 5 common questions and example answers.
 You can memorize the ideas, not the exact lines.
 
----
+
 
 ### **1️⃣ Why do you want to join this club?**
 
@@ -172,7 +169,7 @@ You can memorize the ideas, not the exact lines.
 
 👉 *Shows honesty and self-awareness — interviewers love that.*
 
----
+
 
 ### **2️⃣ What are your strengths?**
 
@@ -180,7 +177,7 @@ You can memorize the ideas, not the exact lines.
 
 👉 *Balances modesty and positivity.*
 
----
+
 
 ### **3️⃣ What are your weaknesses?**
 
@@ -188,13 +185,13 @@ You can memorize the ideas, not the exact lines.
 
 👉 *Shows growth mindset — you acknowledge it and are working on it.*
 
----
+
 
 ### **4️⃣ What do you expect from this club?**
 
 > “I want to learn how to work in a team, handle real-life situations, and contribute to events. I’m also excited to learn from seniors and make new friends.”
 
----
+
 
 ### **5️⃣ Do you have any questions for us?**
 
@@ -202,7 +199,7 @@ You can memorize the ideas, not the exact lines.
 
 👉 *Shows interest and initiative.*
 
----
+
 
 ## 💡 Step 3: Calming Yourself Before Entering the Room
 
@@ -216,7 +213,7 @@ If you feel that instinct stopping you before going in — try this small trick:
 You don’t need to *convince yourself you’re confident*.
 Just act like someone who’s *curious* — curiosity feels lighter than confidence.
 
----
+
 
 ## 🧘 Step 4: Mental Shift — You’re Not “Performing”
 
@@ -229,7 +226,6 @@ Remember:
 Even if you stammer, forget, or say something simple — it’s okay.
 What matters is you **showed up**. That’s already something most people don’t do.
 
----
 
 Would you like me to tailor this intro and answers specifically for **a type of club** you’re thinking of joining (like a technical, cultural, or social service club)?
 That way, I can make the script sound more fitting to the environment you’ll face.
