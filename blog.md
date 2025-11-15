@@ -12,27 +12,23 @@ permalink: /blog/
     <div class="posts-list-modern">
       {% for post in site.posts %}
         <article class="post-item">
-          <div class="post-item-image-wrapper">
-            {% if post.image %}
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-item-image">
-            {% else %}
-              <div class="post-item-image-placeholder">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="12" y1="18" x2="12" y2="12"/>
-                  <line x1="9" y1="15" x2="15" y2="15"/>
-                </svg>
-              </div>
-            {% endif %}
+          <div class="post-item-date">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              <span class="date-day">{{ post.date | date: "%d" }}</span>
+              <span class="date-month">{{ post.date | date: "%b" }}</span>
+              <span class="date-year">{{ post.date | date: "%Y" }}</span>
+            </time>
           </div>
+          
           <div class="post-item-content">
             <h2 class="post-item-title">
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h2>    
+            </h2>
+            
             {% if post.excerpt %}
               <p class="post-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
             {% endif %}
+            
             <div class="post-item-meta">
               {% if post.tags %}
                 <div class="post-item-tags">
@@ -41,7 +37,10 @@ permalink: /blog/
                   {% endfor %}
                 </div>
               {% endif %}
-              <a href="{{ post.url | relative_url }}" class="read-more-link">Read more →</a>
+              
+              <a href="{{ post.url | relative_url }}" class="read-more-link">
+                Read more →
+              </a>
             </div>
           </div>
         </article>
@@ -58,6 +57,7 @@ permalink: /blog/
     </div>
   {% endif %}
   
+  <!-- RSS Subscription -->
   <div class="rss-subscribe">
     <p>
       <a href="{{ '/feed.xml' | relative_url }}" class="rss-button">
