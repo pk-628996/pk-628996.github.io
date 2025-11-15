@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Useful Courses on NPTEL"
+title: "Wave Optics by Prof. Samudra Roy"
 image: https://i.ibb.co/bjXT1jrP/Screenshot-2025-11-05-153036.jpg
-date: 2025-11-05
+date: 2025-11-15
 tags: [courses, nptel, engineering, free, free courses, jekyll, github-pages, tutorial]
 ---
 
