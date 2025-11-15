@@ -31,7 +31,7 @@ permalink: /blog/
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h2>    
             {% if post.excerpt %}
-              <p class="post-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 </p>
+              <p class="post-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
             {% endif %}
             <div class="post-item-meta">
               {% if post.tags %}
