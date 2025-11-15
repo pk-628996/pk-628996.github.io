@@ -7,12 +7,14 @@ permalink: /blog/
 <div class="blog-page">
   <h1 class="page-title">Blog Posts</h1>
   <p class="page-description">Thoughts, stories, and ideas</p>
-  
+
 <section class="featured-section">
   <h2 class="section-title">Latest Posts</h2>
-  
+
   {% if site.posts.size > 0 %}
     <div class="posts-grid">
+
+      {% for post in site.posts %}
         <article class="post-card">
           <div class="post-card-header">
             {% if post.image %}
@@ -27,17 +29,21 @@ permalink: /blog/
                 </svg>
               </div>
             {% endif %}
-          </div>    
+          </div>
+
           <div class="post-card-content">
             <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
               {{ post.date | date: "%B %d, %Y" }}
             </time>
+
             <h3 class="post-card-title">
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
+
             {% if post.excerpt %}
               <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
             {% endif %}
+
             {% if post.tags %}
               <div class="post-tags">
                 {% for tag in post.tags limit:3 %}
@@ -45,13 +51,18 @@ permalink: /blog/
                 {% endfor %}
               </div>
             {% endif %}
+
             <a href="{{ post.url | relative_url }}" class="read-more">
               Read More →
             </a>
           </div>
         </article>
+      {% endfor %}
+
     </div>
-  
+
+  {% endif %}
+
   <!-- RSS Subscription -->
   <div class="rss-subscribe">
     <p>
@@ -63,4 +74,6 @@ permalink: /blog/
       </a>
     </p>
   </div>
+
+</section>
 </div>
